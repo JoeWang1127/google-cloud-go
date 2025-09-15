@@ -2,7 +2,7 @@ image: us-central1-docker.pkg.dev/cloud-sdk-librarian-prod/images-prod/librarian
 libraries:
     - id: dlp
       version: 1.25.0
-      last_generated_commit: 712043cb82fad4a36c79e20f7e356beda059885d
+      last_generated_commit: 2585041b27d424ed4496d163671a95a7e1af4c31
       apis:
         - path: google/privacy/dlp/v2
           service_config: dlp_v2.yaml
