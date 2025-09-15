@@ -1105,6 +1105,7 @@ type internalClient interface {
 // on text, images, and Google Cloud storage repositories.
 // To learn more about concepts and find how-to guides see
 // https://cloud.google.com/sensitive-data-protection/docs/ (at https://cloud.google.com/sensitive-data-protection/docs/).
+// Add a line line.
 type Client struct {
 	// The internal transport-dependent client.
 	internalClient internalClient
@@ -1579,6 +1580,7 @@ type gRPCClient struct {
 // on text, images, and Google Cloud storage repositories.
 // To learn more about concepts and find how-to guides see
 // https://cloud.google.com/sensitive-data-protection/docs/ (at https://cloud.google.com/sensitive-data-protection/docs/).
+// Add a line line.
 func NewClient(ctx context.Context, opts ...option.ClientOption) (*Client, error) {
 	clientOpts := defaultGRPCClientOptions()
 	if newClientHook != nil {
@@ -1657,6 +1659,7 @@ type restClient struct {
 // on text, images, and Google Cloud storage repositories.
 // To learn more about concepts and find how-to guides see
 // https://cloud.google.com/sensitive-data-protection/docs/ (at https://cloud.google.com/sensitive-data-protection/docs/).
+// Add a line line.
 func NewRESTClient(ctx context.Context, opts ...option.ClientOption) (*Client, error) {
 	clientOpts := append(defaultRESTClientOptions(), opts...)
 	httpClient, endpoint, err := httptransport.NewClient(ctx, clientOpts...)
