@@ -1,5 +1,20 @@
 # Changes
 
+## [0.4.0](https://github.com/googleapis/google-cloud-go/releases/tag/errorreporting%2Fv0.4.0) (2025-10-29)
+
+### Bug Fixes
+
+* update golang.org/x/net to 0.37.0 ([1144978](https://github.com/googleapis/google-cloud-go/commit/11449782c7fb4896bf8b8b9cde8e7441c84fb2fd))
+* update golang.org/x/net to v0.33.0 ([e9b0b69](https://github.com/googleapis/google-cloud-go/commit/e9b0b69644ea5b276cacff0a707e8a5e87efafc9))
+* update google.golang.org/api to 0.229.0 ([3319672](https://github.com/googleapis/google-cloud-go/commit/3319672f3dba84a7150772ccb5433e02dab7e201))
+* upgrade gRPC service registration func An update to Go gRPC Protobuf generation will change service registration function signatures to use an interface instead of a concrete type in generated .pb.go service files. This change should affect very few client library users. See release notes advisories in https://github.com/googleapis/google-cloud-go/pull/11025. ([8adc9c5](https://github.com/googleapis/google-cloud-go/commit/8adc9c59f6feaebf0efa2885f35e3fad232cd202))
+
+### Documentation
+
+* Removes references as a &#34;global-only&#34; service ([8adc9c5](https://github.com/googleapis/google-cloud-go/commit/8adc9c59f6feaebf0efa2885f35e3fad232cd202))
+* Updates documentation with regional resource names for multiple requests ([8adc9c5](https://github.com/googleapis/google-cloud-go/commit/8adc9c59f6feaebf0efa2885f35e3fad232cd202))
+* automated code change ([8adc9c5](https://github.com/googleapis/google-cloud-go/commit/8adc9c59f6feaebf0efa2885f35e3fad232cd202))
+
 ## [0.3.2](https://github.com/googleapis/google-cloud-go/compare/errorreporting/v0.3.1...errorreporting/v0.3.2) (2024-12-10)
 
 
