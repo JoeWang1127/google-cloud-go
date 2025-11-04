@@ -22,6 +22,12 @@ libraries:
     release_blocked: true
   - id: "auth/oauth2adapt"
     release_blocked: true
+  - id: "bigtable"
+    release_blocked: true
+  - id: "bigquery"
+    release_blocked: true
+  - id: "bigquery/v2"
+    release_blocked: true
   - id: "compute/metadata"
     release_blocked: true
   - id: "datastore"
@@ -29,6 +35,8 @@ libraries:
   - id: "errorreporting"
     release_blocked: true
   - id: "firestore"
+    release_blocked: true
+  - id: "logging"
     release_blocked: true
   - id: "longrunning"
     release_blocked: true
@@ -43,6 +51,8 @@ libraries:
   - id: "root-module"
     release_blocked: true
   - id: "spanner"
+    release_blocked: true
+  - id: "storage"
     release_blocked: true
   - id: "vertexai"
     release_blocked: true
