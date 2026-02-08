@@ -16,8 +16,8 @@ language: go
 repo: googleapis/google-cloud-go
 sources:
   googleapis:
-    commit: 28bcd0c295e3278e55df21ee6e4cacf4f13be46f
-    sha256: 816a38a05e980c1e87a88c49ee831beddc9fe687ec5b13616fdbf9c65656909e
+    commit: 725496d32a359a40dd773995d3fda0342b440e15
+    sha256: 3b46f37113f658a7c1a971a571d7c31bef2a0c776509ccd63dc04cc954abdd34
 default:
   tag_format: '{name}/v{version}'
 libraries:
@@ -42,7 +42,14 @@ libraries:
       - path: google/ai/generativelanguage/v1beta2
     go:
       go_apis:
-        - client_directory: generativelanguage
+        - path: google/ai/generativelanguage/v1
+          client_directory: generativelanguage
+        - path: google/ai/generativelanguage/v1alpha
+          client_directory: generativelanguage
+        - path: google/ai/generativelanguage/v1beta
+          client_directory: generativelanguage
+        - path: google/ai/generativelanguage/v1beta2
+          client_directory: generativelanguage
   - name: aiplatform
     version: 1.115.0
     apis:
