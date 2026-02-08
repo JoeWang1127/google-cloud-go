@@ -19,6 +19,7 @@ sources:
     commit: 725496d32a359a40dd773995d3fda0342b440e15
     sha256: 3b46f37113f658a7c1a971a571d7c31bef2a0c776509ccd63dc04cc954abdd34
 default:
+  release_level: ga
   tag_format: '{name}/v{version}'
 libraries:
   - name: accessapproval
@@ -40,20 +41,7 @@ libraries:
       - path: google/ai/generativelanguage/v1alpha
       - path: google/ai/generativelanguage/v1beta
       - path: google/ai/generativelanguage/v1beta2
-    go:
-      go_apis:
-        - path: google/ai/generativelanguage/v1
-          client_directory: generativelanguage
-          import_path: ai/generativelanguage
-        - path: google/ai/generativelanguage/v1alpha
-          client_directory: generativelanguage
-          import_path: ai/generativelanguage
-        - path: google/ai/generativelanguage/v1beta
-          client_directory: generativelanguage
-          import_path: ai/generativelanguage
-        - path: google/ai/generativelanguage/v1beta2
-          client_directory: generativelanguage
-          import_path: ai/generativelanguage
+    release_level: beta
   - name: aiplatform
     version: 1.115.0
     apis:
