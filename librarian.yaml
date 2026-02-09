@@ -42,6 +42,20 @@ libraries:
       - path: google/ai/generativelanguage/v1beta
       - path: google/ai/generativelanguage/v1beta2
     release_level: beta
+    go:
+      go_apis:
+        - path: google/ai/generativelanguage/v1
+          client_directory: generativelanguage
+          import_path: ai/generativelanguage
+        - path: google/ai/generativelanguage/v1alpha
+          client_directory: generativelanguage
+          import_path: ai/generativelanguage
+        - path: google/ai/generativelanguage/v1beta
+          client_directory: generativelanguage
+          import_path: ai/generativelanguage
+        - path: google/ai/generativelanguage/v1beta2
+          client_directory: generativelanguage
+          import_path: ai/generativelanguage
   - name: aiplatform
     version: 1.115.0
     apis:
