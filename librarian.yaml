@@ -19,6 +19,7 @@ sources:
     commit: 5b2aa2c08c23f26d6e8abe65377077c624878d12
     sha256: a59bf9479397b0e99aa06ca901494e8151c3d61c4121b0f6fb9a4c9368eb14e8
 default:
+  output: .
   release_level: ga
   tag_format: '{name}/v{version}'
 libraries:
