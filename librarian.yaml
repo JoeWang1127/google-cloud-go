@@ -28,13 +28,13 @@ libraries:
     apis:
       - path: google/cloud/accessapproval/v1
     keep:
-      - aliasshim/aliasshim.go
+      - accessapproval/aliasshim/aliasshim.go
   - name: accesscontextmanager
     version: 1.9.7
     apis:
       - path: google/identity/accesscontextmanager/v1
     keep:
-      - aliasshim/aliasshim.go
+      - accesscontextmanager/aliasshim/aliasshim.go
   - name: advisorynotifications
     version: 1.5.6
     apis:
@@ -67,7 +67,7 @@ libraries:
       - path: google/cloud/aiplatform/v1
       - path: google/cloud/aiplatform/v1beta1
     keep:
-      - aliasshim/aliasshim.go
+      - aiplatform/aliasshim/aliasshim.go
   - name: alloydb
     version: 1.20.0
     apis:
@@ -82,25 +82,25 @@ libraries:
     apis:
       - path: google/analytics/admin/v1alpha
     keep:
-      - aliasshim/aliasshim.go
+      - analytics/aliasshim/aliasshim.go
   - name: apigateway
     version: 1.7.7
     apis:
       - path: google/cloud/apigateway/v1
     keep:
-      - aliasshim/aliasshim.go
+      - apigateway/aliasshim/aliasshim.go
   - name: apigeeconnect
     version: 1.7.7
     apis:
       - path: google/cloud/apigeeconnect/v1
     keep:
-      - aliasshim/aliasshim.go
+      - apigeeconnect/aliasshim/aliasshim.go
   - name: apigeeregistry
     version: 0.10.0
     apis:
       - path: google/cloud/apigeeregistry/v1
     keep:
-      - aliasshim/aliasshim.go
+      - apigeeregistry/aliasshim/aliasshim.go
   - name: apihub
     version: 0.2.0
     apis:
@@ -110,7 +110,7 @@ libraries:
     apis:
       - path: google/api/apikeys/v2
     keep:
-      - aliasshim/aliasshim.go
+      - apikeys/aliasshim/aliasshim.go
   - name: apiregistry
     version: 0.2.0
     apis:
@@ -121,7 +121,7 @@ libraries:
     apis:
       - path: google/appengine/v1
     keep:
-      - aliasshim/aliasshim.go
+      - appengine/aliasshim/aliasshim.go
   - name: apphub
     version: 0.4.0
     apis:
@@ -138,14 +138,14 @@ libraries:
     apis:
       - path: google/area120/tables/v1alpha1
     keep:
-      - aliasshim/aliasshim.go
+      - area120/aliasshim/aliasshim.go
   - name: artifactregistry
     version: 1.19.0
     apis:
       - path: google/devtools/artifactregistry/v1
       - path: google/devtools/artifactregistry/v1beta2
     keep:
-      - aliasshim/aliasshim.go
+      - artifactregistry/aliasshim/aliasshim.go
   - name: asset
     version: 1.22.0
     apis:
@@ -153,14 +153,14 @@ libraries:
       - path: google/cloud/asset/v1p2beta1
       - path: google/cloud/asset/v1p5beta1
     keep:
-      - aliasshim/aliasshim.go
+      - asset/aliasshim/aliasshim.go
   - name: assuredworkloads
     version: 1.13.0
     apis:
       - path: google/cloud/assuredworkloads/v1
       - path: google/cloud/assuredworkloads/v1beta1
     keep:
-      - aliasshim/aliasshim.go
+      - assuredworkloads/aliasshim/aliasshim.go
   - name: auth
     version: 0.18.1
     skip_release: true
@@ -173,7 +173,7 @@ libraries:
       - path: google/cloud/automl/v1
       - path: google/cloud/automl/v1beta1
     keep:
-      - aliasshim/aliasshim.go
+      - automl/aliasshim/aliasshim.go
   - name: backupdr
     version: 1.8.0
     apis:
@@ -183,14 +183,14 @@ libraries:
     apis:
       - path: google/cloud/baremetalsolution/v2
     keep:
-      - aliasshim/aliasshim.go
+      - baremetalsolution/aliasshim/aliasshim.go
   - name: batch
     version: 1.14.0
     apis:
       - path: google/cloud/batch/v1
     keep:
       - ^batch/apiv1/iam_policy_client\.go$
-      - aliasshim/aliasshim.go
+      - batch/aliasshim/aliasshim.go
   - name: beyondcorp
     version: 1.2.0
     apis:
@@ -200,7 +200,7 @@ libraries:
       - path: google/cloud/beyondcorp/clientconnectorservices/v1
       - path: google/cloud/beyondcorp/clientgateways/v1
     keep:
-      - aliasshim/aliasshim.go
+      - beyondcorp/aliasshim/aliasshim.go
   - name: bigquery
     version: 1.73.1
     apis:
@@ -225,7 +225,7 @@ libraries:
       - path: google/cloud/bigquery/storage/v1beta2
     keep:
       - ^internal/generated/snippets/bigquery/v2/
-      - aliasshim/aliasshim.go
+      - bigquery/aliasshim/aliasshim.go
     skip_release: true
   - name: bigquery/v2
     version: 0.0.0
@@ -255,14 +255,14 @@ libraries:
       - path: google/cloud/billing/budgets/v1beta1
       - path: google/cloud/billing/v1
     keep:
-      - aliasshim/aliasshim.go
+      - billing/aliasshim/aliasshim.go
   - name: binaryauthorization
     version: 1.10.0
     apis:
       - path: google/cloud/binaryauthorization/v1
       - path: google/cloud/binaryauthorization/v1beta1
     keep:
-      - aliasshim/aliasshim.go
+      - binaryauthorization/aliasshim/aliasshim.go
   - name: capacityplanner
     version: 0.2.0
     apis:
@@ -272,13 +272,13 @@ libraries:
     apis:
       - path: google/cloud/certificatemanager/v1
     keep:
-      - aliasshim/aliasshim.go
+      - certificatemanager/aliasshim/aliasshim.go
   - name: channel
     version: 1.21.0
     apis:
       - path: google/cloud/channel/v1
     keep:
-      - aliasshim/aliasshim.go
+      - channel/aliasshim/aliasshim.go
   - name: chat
     version: 0.18.0
     apis:
@@ -293,7 +293,7 @@ libraries:
       - path: google/devtools/cloudbuild/v1
       - path: google/devtools/cloudbuild/v2
     keep:
-      - aliasshim/aliasshim.go
+      - cloudbuild/aliasshim/aliasshim.go
     go:
       go_apis:
         - path: google/devtools/cloudbuild/v1
@@ -308,7 +308,7 @@ libraries:
     apis:
       - path: google/cloud/clouddms/v1
     keep:
-      - aliasshim/aliasshim.go
+      - clouddms/aliasshim/aliasshim.go
   - name: cloudprofiler
     version: 0.4.6
     apis:
@@ -329,7 +329,7 @@ libraries:
       - path: google/cloud/tasks/v2beta2
       - path: google/cloud/tasks/v2beta3
     keep:
-      - aliasshim/aliasshim.go
+      - cloudtasks/aliasshim/aliasshim.go
     go:
       go_apis:
         - path: google/cloud/tasks/v2
@@ -348,7 +348,7 @@ libraries:
       - path: google/cloud/compute/v1
       - path: google/cloud/compute/v1beta
     keep:
-      - aliasshim/aliasshim.go
+      - compute/aliasshim/aliasshim.go
   - name: compute/metadata
     version: 0.9.0
     skip_release: true
@@ -371,19 +371,19 @@ libraries:
     apis:
       - path: google/cloud/contactcenterinsights/v1
     keep:
-      - aliasshim/aliasshim.go
+      - contactcenterinsights/aliasshim/aliasshim.go
   - name: container
     version: 1.46.0
     apis:
       - path: google/container/v1
     keep:
-      - aliasshim/aliasshim.go
+      - container/aliasshim/aliasshim.go
   - name: containeranalysis
     version: 0.14.2
     apis:
       - path: google/devtools/containeranalysis/v1beta1
     keep:
-      - aliasshim/aliasshim.go
+      - containeranalysis/aliasshim/aliasshim.go
     go:
       go_apis:
         - path: google/devtools/containeranalysis/v1beta1
@@ -397,32 +397,32 @@ libraries:
       - path: google/cloud/datacatalog/v1beta1
     keep:
       - ^datacatalog/apiv1/iam_policy_client\.go$
-      - aliasshim/aliasshim.go
+      - datacatalog/aliasshim/aliasshim.go
   - name: dataflow
     version: 0.11.1
     apis:
       - path: google/dataflow/v1beta3
     keep:
-      - aliasshim/aliasshim.go
+      - dataflow/aliasshim/aliasshim.go
   - name: dataform
     version: 0.12.1
     apis:
       - path: google/cloud/dataform/v1
       - path: google/cloud/dataform/v1beta1
     keep:
-      - aliasshim/aliasshim.go
+      - dataform/aliasshim/aliasshim.go
   - name: datafusion
     version: 1.8.7
     apis:
       - path: google/cloud/datafusion/v1
     keep:
-      - aliasshim/aliasshim.go
+      - datafusion/aliasshim/aliasshim.go
   - name: datalabeling
     version: 0.9.7
     apis:
       - path: google/cloud/datalabeling/v1beta1
     keep:
-      - aliasshim/aliasshim.go
+      - datalabeling/aliasshim/aliasshim.go
   - name: datamanager
     version: 0.0.0
     apis:
@@ -432,13 +432,13 @@ libraries:
     apis:
       - path: google/cloud/dataplex/v1
     keep:
-      - aliasshim/aliasshim.go
+      - dataplex/aliasshim/aliasshim.go
   - name: dataproc
     version: 2.15.0
     apis:
       - path: google/cloud/dataproc/v1
     keep:
-      - aliasshim/aliasshim.go
+      - dataproc/aliasshim/aliasshim.go
     go:
       module_path_version: v2
   - name: dataqna
@@ -446,14 +446,14 @@ libraries:
     apis:
       - path: google/cloud/dataqna/v1alpha
     keep:
-      - aliasshim/aliasshim.go
+      - dataqna/aliasshim/aliasshim.go
   - name: datastore
     version: 1.22.0
     apis:
       - path: google/datastore/admin/v1
       - path: google/datastore/v1
     keep:
-      - aliasshim/aliasshim.go
+      - datastore/aliasshim/aliasshim.go
     skip_release: true
     go:
       go_apis:
@@ -466,13 +466,13 @@ libraries:
       - path: google/cloud/datastream/v1alpha1
     keep:
       - ^datastream/apiv1/iam_policy_client\.go$
-      - aliasshim/aliasshim.go
+      - datastream/aliasshim/aliasshim.go
   - name: deploy
     version: 1.27.3
     apis:
       - path: google/cloud/deploy/v1
     keep:
-      - aliasshim/aliasshim.go
+      - deploy/aliasshim/aliasshim.go
   - name: developerconnect
     version: 0.4.1
     apis:
@@ -489,7 +489,7 @@ libraries:
       - path: google/cloud/dialogflow/v2
       - path: google/cloud/dialogflow/v2beta1
     keep:
-      - aliasshim/aliasshim.go
+      - dialogflow/aliasshim/aliasshim.go
   - name: discoveryengine
     version: 1.22.0
     apis:
@@ -501,20 +501,20 @@ libraries:
     apis:
       - path: google/privacy/dlp/v2
     keep:
-      - aliasshim/aliasshim.go
+      - dlp/aliasshim/aliasshim.go
   - name: documentai
     version: 1.40.0
     apis:
       - path: google/cloud/documentai/v1
       - path: google/cloud/documentai/v1beta3
     keep:
-      - aliasshim/aliasshim.go
+      - documentai/aliasshim/aliasshim.go
   - name: domains
     version: 0.10.7
     apis:
       - path: google/cloud/domains/v1beta1
     keep:
-      - aliasshim/aliasshim.go
+      - domains/aliasshim/aliasshim.go
   - name: edgecontainer
     version: 1.4.4
     apis:
@@ -528,7 +528,7 @@ libraries:
     apis:
       - path: google/devtools/clouderrorreporting/v1beta1
     keep:
-      - aliasshim/aliasshim.go
+      - errorreporting/aliasshim/aliasshim.go
     go:
       go_apis:
         - path: google/devtools/clouderrorreporting/v1beta1
@@ -538,20 +538,20 @@ libraries:
     apis:
       - path: google/cloud/essentialcontacts/v1
     keep:
-      - aliasshim/aliasshim.go
+      - essentialcontacts/aliasshim/aliasshim.go
   - name: eventarc
     version: 1.18.0
     apis:
       - path: google/cloud/eventarc/publishing/v1
       - path: google/cloud/eventarc/v1
     keep:
-      - aliasshim/aliasshim.go
+      - eventarc/aliasshim/aliasshim.go
   - name: filestore
     version: 1.10.3
     apis:
       - path: google/cloud/filestore/v1
     keep:
-      - aliasshim/aliasshim.go
+      - filestore/aliasshim/aliasshim.go
   - name: financialservices
     version: 0.1.4
     apis:
@@ -562,7 +562,7 @@ libraries:
       - path: google/firestore/admin/v1
       - path: google/firestore/v1
     keep:
-      - aliasshim/aliasshim.go
+      - firestore/aliasshim/aliasshim.go
     skip_release: true
     go:
       go_apis:
@@ -575,7 +575,7 @@ libraries:
       - path: google/cloud/functions/v2
       - path: google/cloud/functions/v2beta
     keep:
-      - aliasshim/aliasshim.go
+      - functions/aliasshim/aliasshim.go
   - name: geminidataanalytics
     version: 0.7.0
     apis:
@@ -585,26 +585,26 @@ libraries:
     apis:
       - path: google/cloud/gkebackup/v1
     keep:
-      - aliasshim/aliasshim.go
+      - gkebackup/aliasshim/aliasshim.go
   - name: gkeconnect
     version: 0.12.5
     apis:
       - path: google/cloud/gkeconnect/gateway/v1
       - path: google/cloud/gkeconnect/gateway/v1beta1
     keep:
-      - aliasshim/aliasshim.go
+      - gkeconnect/aliasshim/aliasshim.go
   - name: gkehub
     version: 0.16.0
     apis:
       - path: google/cloud/gkehub/v1beta1
     keep:
-      - aliasshim/aliasshim.go
+      - gkehub/aliasshim/aliasshim.go
   - name: gkemulticloud
     version: 1.6.0
     apis:
       - path: google/cloud/gkemulticloud/v1
     keep:
-      - aliasshim/aliasshim.go
+      - gkemulticloud/aliasshim/aliasshim.go
   - name: gkerecommender
     version: 0.1.0
     apis:
@@ -616,7 +616,7 @@ libraries:
     apis:
       - path: google/cloud/gsuiteaddons/v1
     keep:
-      - aliasshim/aliasshim.go
+      - gsuiteaddons/aliasshim/aliasshim.go
   - name: hypercomputecluster
     version: 0.1.0
     apis:
@@ -630,13 +630,13 @@ libraries:
       - path: google/iam/v3
       - path: google/iam/v3beta
     keep:
-      - aliasshim/aliasshim.go
+      - iam/aliasshim/aliasshim.go
   - name: iap
     version: 1.11.3
     apis:
       - path: google/cloud/iap/v1
     keep:
-      - aliasshim/aliasshim.go
+      - iap/aliasshim/aliasshim.go
   - name: identitytoolkit
     version: 0.2.6
     apis:
@@ -646,20 +646,20 @@ libraries:
     apis:
       - path: google/cloud/ids/v1
     keep:
-      - aliasshim/aliasshim.go
+      - ids/aliasshim/aliasshim.go
   - name: iot
     version: 1.8.7
     apis:
       - path: google/cloud/iot/v1
     keep:
-      - aliasshim/aliasshim.go
+      - iot/aliasshim/aliasshim.go
   - name: kms
     version: 1.25.0
     apis:
       - path: google/cloud/kms/inventory/v1
       - path: google/cloud/kms/v1
     keep:
-      - aliasshim/aliasshim.go
+      - kms/aliasshim/aliasshim.go
   - name: language
     version: 1.14.6
     apis:
@@ -667,7 +667,7 @@ libraries:
       - path: google/cloud/language/v1beta2
       - path: google/cloud/language/v2
     keep:
-      - aliasshim/aliasshim.go
+      - language/aliasshim/aliasshim.go
   - name: licensemanager
     version: 0.1.1
     apis:
@@ -677,7 +677,7 @@ libraries:
     apis:
       - path: google/cloud/lifesciences/v2beta
     keep:
-      - aliasshim/aliasshim.go
+      - lifesciences/aliasshim/aliasshim.go
   - name: locationfinder
     version: 0.1.1
     apis:
@@ -687,13 +687,13 @@ libraries:
     apis:
       - path: google/logging/v2
     keep:
-      - aliasshim/aliasshim.go
+      - logging/aliasshim/aliasshim.go
   - name: longrunning
     version: 0.8.0
     apis:
       - path: google/longrunning
     keep:
-      - aliasshim/aliasshim.go
+      - longrunning/aliasshim/aliasshim.go
     go:
       go_apis:
         - path: google/longrunning
@@ -712,7 +712,7 @@ libraries:
     apis:
       - path: google/cloud/managedidentities/v1
     keep:
-      - aliasshim/aliasshim.go
+      - managedidentities/aliasshim/aliasshim.go
   - name: managedkafka
     version: 0.8.1
     apis:
@@ -740,14 +740,14 @@ libraries:
     apis:
       - path: google/cloud/mediatranslation/v1beta1
     keep:
-      - aliasshim/aliasshim.go
+      - mediatranslation/aliasshim/aliasshim.go
   - name: memcache
     version: 1.11.7
     apis:
       - path: google/cloud/memcache/v1
       - path: google/cloud/memcache/v1beta2
     keep:
-      - aliasshim/aliasshim.go
+      - memcache/aliasshim/aliasshim.go
   - name: memorystore
     version: 0.4.0
     apis:
@@ -760,7 +760,7 @@ libraries:
       - path: google/cloud/metastore/v1alpha
       - path: google/cloud/metastore/v1beta
     keep:
-      - aliasshim/aliasshim.go
+      - metastore/aliasshim/aliasshim.go
   - name: migrationcenter
     version: 1.1.6
     apis:
@@ -777,7 +777,7 @@ libraries:
       - path: google/monitoring/metricsscope/v1
       - path: google/monitoring/v3
     keep:
-      - aliasshim/aliasshim.go
+      - monitoring/aliasshim/aliasshim.go
     go:
       go_apis:
         - path: google/monitoring/v3
@@ -792,19 +792,19 @@ libraries:
       - path: google/cloud/networkconnectivity/v1
       - path: google/cloud/networkconnectivity/v1alpha1
     keep:
-      - aliasshim/aliasshim.go
+      - networkconnectivity/aliasshim/aliasshim.go
   - name: networkmanagement
     version: 1.22.0
     apis:
       - path: google/cloud/networkmanagement/v1
     keep:
-      - aliasshim/aliasshim.go
+      - networkmanagement/aliasshim/aliasshim.go
   - name: networksecurity
     version: 0.11.0
     apis:
       - path: google/cloud/networksecurity/v1beta1
     keep:
-      - aliasshim/aliasshim.go
+      - networksecurity/aliasshim/aliasshim.go
   - name: networkservices
     version: 0.6.0
     apis:
@@ -816,13 +816,13 @@ libraries:
       - path: google/cloud/notebooks/v1beta1
       - path: google/cloud/notebooks/v2
     keep:
-      - aliasshim/aliasshim.go
+      - notebooks/aliasshim/aliasshim.go
   - name: optimization
     version: 1.7.7
     apis:
       - path: google/cloud/optimization/v1
     keep:
-      - aliasshim/aliasshim.go
+      - optimization/aliasshim/aliasshim.go
   - name: oracledatabase
     version: 0.6.0
     apis:
@@ -832,14 +832,14 @@ libraries:
     apis:
       - path: google/cloud/orchestration/airflow/service/v1
     keep:
-      - aliasshim/aliasshim.go
+      - orchestration/aliasshim/aliasshim.go
   - name: orgpolicy
     version: 1.15.1
     apis:
       - path: google/cloud/orgpolicy/v1
       - path: google/cloud/orgpolicy/v2
     keep:
-      - aliasshim/aliasshim.go
+      - orgpolicy/aliasshim/aliasshim.go
   - name: osconfig
     version: 1.16.0
     apis:
@@ -849,7 +849,7 @@ libraries:
       - path: google/cloud/osconfig/v1alpha
       - path: google/cloud/osconfig/v1beta
     keep:
-      - aliasshim/aliasshim.go
+      - osconfig/aliasshim/aliasshim.go
   - name: oslogin
     version: 1.14.7
     apis:
@@ -857,7 +857,7 @@ libraries:
       - path: google/cloud/oslogin/v1
       - path: google/cloud/oslogin/v1beta
     keep:
-      - aliasshim/aliasshim.go
+      - oslogin/aliasshim/aliasshim.go
   - name: parallelstore
     version: 0.12.0
     apis:
@@ -872,7 +872,7 @@ libraries:
     apis:
       - path: google/cloud/phishingprotection/v1beta1
     keep:
-      - aliasshim/aliasshim.go
+      - phishingprotection/aliasshim/aliasshim.go
   - name: policysimulator
     version: 0.4.1
     apis:
@@ -883,13 +883,13 @@ libraries:
       - path: google/cloud/policytroubleshooter/iam/v3
       - path: google/cloud/policytroubleshooter/v1
     keep:
-      - aliasshim/aliasshim.go
+      - policytroubleshooter/aliasshim/aliasshim.go
   - name: privatecatalog
     version: 0.10.8
     apis:
       - path: google/cloud/privatecatalog/v1beta1
     keep:
-      - aliasshim/aliasshim.go
+      - privatecatalog/aliasshim/aliasshim.go
   - name: privilegedaccessmanager
     version: 0.3.1
     apis:
@@ -899,7 +899,7 @@ libraries:
   - name: pubsub
     version: 1.50.1
     keep:
-      - aliasshim/aliasshim.go
+      - pubsub/aliasshim/aliasshim.go
     skip_release: true
   - name: pubsub/v2
     version: 2.4.0
@@ -915,7 +915,7 @@ libraries:
     apis:
       - path: google/cloud/pubsublite/v1
     keep:
-      - aliasshim/aliasshim.go
+      - pubsublite/aliasshim/aliasshim.go
     skip_release: true
   - name: rapidmigrationassessment
     version: 1.1.8
@@ -927,7 +927,7 @@ libraries:
       - path: google/cloud/recaptchaenterprise/v1
       - path: google/cloud/recaptchaenterprise/v1beta1
     keep:
-      - aliasshim/aliasshim.go
+      - recaptchaenterprise/aliasshim/aliasshim.go
     go:
       module_path_version: v2
   - name: recommendationengine
@@ -935,14 +935,14 @@ libraries:
     apis:
       - path: google/cloud/recommendationengine/v1beta1
     keep:
-      - aliasshim/aliasshim.go
+      - recommendationengine/aliasshim/aliasshim.go
   - name: recommender
     version: 1.13.6
     apis:
       - path: google/cloud/recommender/v1
       - path: google/cloud/recommender/v1beta1
     keep:
-      - aliasshim/aliasshim.go
+      - recommender/aliasshim/aliasshim.go
   - name: redis
     version: 1.18.3
     apis:
@@ -950,14 +950,14 @@ libraries:
       - path: google/cloud/redis/v1
       - path: google/cloud/redis/v1beta1
     keep:
-      - aliasshim/aliasshim.go
+      - redis/aliasshim/aliasshim.go
   - name: resourcemanager
     version: 1.10.7
     apis:
       - path: google/cloud/resourcemanager/v2
       - path: google/cloud/resourcemanager/v3
     keep:
-      - aliasshim/aliasshim.go
+      - resourcemanager/aliasshim/aliasshim.go
   - name: retail
     version: 1.26.0
     apis:
@@ -965,7 +965,7 @@ libraries:
       - path: google/cloud/retail/v2alpha
       - path: google/cloud/retail/v2beta
     keep:
-      - aliasshim/aliasshim.go
+      - retail/aliasshim/aliasshim.go
   - name: root-module
     version: 0.123.0
     skip_release: true
@@ -975,7 +975,7 @@ libraries:
       - path: google/cloud/run/v2
     keep:
       - ^run/apiv2/locations_client\.go$
-      - aliasshim/aliasshim.go
+      - run/aliasshim/aliasshim.go
   - name: saasplatform
     version: 0.1.0
     apis:
@@ -986,14 +986,14 @@ libraries:
       - path: google/cloud/scheduler/v1
       - path: google/cloud/scheduler/v1beta1
     keep:
-      - aliasshim/aliasshim.go
+      - scheduler/aliasshim/aliasshim.go
   - name: secretmanager
     version: 1.16.0
     apis:
       - path: google/cloud/secretmanager/v1
       - path: google/cloud/secretmanager/v1beta2
     keep:
-      - aliasshim/aliasshim.go
+      - secretmanager/aliasshim/aliasshim.go
   - name: securesourcemanager
     version: 1.4.1
     apis:
@@ -1005,7 +1005,7 @@ libraries:
       - path: google/cloud/security/publicca/v1
       - path: google/cloud/security/publicca/v1beta1
     keep:
-      - aliasshim/aliasshim.go
+      - security/aliasshim/aliasshim.go
   - name: securitycenter
     version: 1.38.1
     apis:
@@ -1015,7 +1015,7 @@ libraries:
       - path: google/cloud/securitycenter/v1p1beta1
       - path: google/cloud/securitycenter/v2
     keep:
-      - aliasshim/aliasshim.go
+      - securitycenter/aliasshim/aliasshim.go
   - name: securitycentermanagement
     version: 1.1.6
     apis:
@@ -1029,14 +1029,14 @@ libraries:
     apis:
       - path: google/api/servicecontrol/v1
     keep:
-      - aliasshim/aliasshim.go
+      - servicecontrol/aliasshim/aliasshim.go
   - name: servicedirectory
     version: 1.12.7
     apis:
       - path: google/cloud/servicedirectory/v1
       - path: google/cloud/servicedirectory/v1beta1
     keep:
-      - aliasshim/aliasshim.go
+      - servicedirectory/aliasshim/aliasshim.go
   - name: servicehealth
     version: 1.2.4
     apis:
@@ -1046,19 +1046,19 @@ libraries:
     apis:
       - path: google/api/servicemanagement/v1
     keep:
-      - aliasshim/aliasshim.go
+      - servicemanagement/aliasshim/aliasshim.go
   - name: serviceusage
     version: 1.9.7
     apis:
       - path: google/api/serviceusage/v1
     keep:
-      - aliasshim/aliasshim.go
+      - serviceusage/aliasshim/aliasshim.go
   - name: shell
     version: 1.8.7
     apis:
       - path: google/cloud/shell/v1
     keep:
-      - aliasshim/aliasshim.go
+      - shell/aliasshim/aliasshim.go
   - name: shopping
     version: 1.4.0
     apis:
@@ -1099,7 +1099,7 @@ libraries:
       - path: google/spanner/executor/v1
       - path: google/spanner/v1
     keep:
-      - aliasshim/aliasshim.go
+      - spanner/aliasshim/aliasshim.go
     skip_release: true
   - name: speech
     version: 1.29.0
@@ -1108,7 +1108,7 @@ libraries:
       - path: google/cloud/speech/v1p1beta1
       - path: google/cloud/speech/v2
     keep:
-      - aliasshim/aliasshim.go
+      - speech/aliasshim/aliasshim.go
   - name: storage
     version: 1.59.1
     apis:
@@ -1131,7 +1131,7 @@ libraries:
     apis:
       - path: google/storagetransfer/v1
     keep:
-      - aliasshim/aliasshim.go
+      - storagetransfer/aliasshim/aliasshim.go
   - name: streetview
     version: 0.2.6
     apis:
@@ -1147,7 +1147,7 @@ libraries:
       - path: google/cloud/talent/v4
       - path: google/cloud/talent/v4beta1
     keep:
-      - aliasshim/aliasshim.go
+      - talent/aliasshim/aliasshim.go
   - name: telcoautomation
     version: 1.1.6
     apis:
@@ -1157,20 +1157,20 @@ libraries:
     apis:
       - path: google/cloud/texttospeech/v1
     keep:
-      - aliasshim/aliasshim.go
+      - texttospeech/aliasshim/aliasshim.go
   - name: tpu
     version: 1.8.4
     apis:
       - path: google/cloud/tpu/v1
     keep:
-      - aliasshim/aliasshim.go
+      - tpu/aliasshim/aliasshim.go
   - name: trace
     version: 1.11.7
     apis:
       - path: google/devtools/cloudtrace/v1
       - path: google/devtools/cloudtrace/v2
     keep:
-      - aliasshim/aliasshim.go
+      - trace/aliasshim/aliasshim.go
     go:
       go_apis:
         - path: google/devtools/cloudtrace/v1
@@ -1182,7 +1182,7 @@ libraries:
     apis:
       - path: google/cloud/translate/v3
     keep:
-      - aliasshim/aliasshim.go
+      - translate/aliasshim/aliasshim.go
     go:
       go_apis:
         - path: google/cloud/translate/v3
@@ -1201,7 +1201,7 @@ libraries:
       - path: google/cloud/video/stitcher/v1
       - path: google/cloud/video/transcoder/v1
     keep:
-      - aliasshim/aliasshim.go
+      - video/aliasshim/aliasshim.go
   - name: videointelligence
     version: 1.12.7
     apis:
@@ -1209,14 +1209,14 @@ libraries:
       - path: google/cloud/videointelligence/v1beta2
       - path: google/cloud/videointelligence/v1p3beta1
     keep:
-      - aliasshim/aliasshim.go
+      - videointelligence/aliasshim/aliasshim.go
   - name: vision
     version: 2.9.6
     apis:
       - path: google/cloud/vision/v1
       - path: google/cloud/vision/v1p1beta1
     keep:
-      - aliasshim/aliasshim.go
+      - vision/aliasshim/aliasshim.go
     go:
       module_path_version: v2
   - name: visionai
@@ -1229,7 +1229,7 @@ libraries:
       - path: google/cloud/vmmigration/v1
     keep:
       - ^vmmigration/apiv1/iam_policy_client\.go$
-      - aliasshim/aliasshim.go
+      - vmmigration/aliasshim/aliasshim.go
   - name: vmwareengine
     version: 1.3.6
     apis:
@@ -1239,20 +1239,20 @@ libraries:
     apis:
       - path: google/cloud/vpcaccess/v1
     keep:
-      - aliasshim/aliasshim.go
+      - vpcaccess/aliasshim/aliasshim.go
   - name: webrisk
     version: 1.11.2
     apis:
       - path: google/cloud/webrisk/v1
       - path: google/cloud/webrisk/v1beta1
     keep:
-      - aliasshim/aliasshim.go
+      - webrisk/aliasshim/aliasshim.go
   - name: websecurityscanner
     version: 1.7.7
     apis:
       - path: google/cloud/websecurityscanner/v1
     keep:
-      - aliasshim/aliasshim.go
+      - websecurityscanner/aliasshim/aliasshim.go
   - name: workflows
     version: 1.14.3
     apis:
@@ -1261,7 +1261,7 @@ libraries:
       - path: google/cloud/workflows/v1
       - path: google/cloud/workflows/v1beta
     keep:
-      - aliasshim/aliasshim.go
+      - workflows/aliasshim/aliasshim.go
   - name: workstations
     version: 1.1.6
     apis:
