@@ -16,8 +16,8 @@ language: go
 repo: googleapis/google-cloud-go
 sources:
   googleapis:
-    commit: df13ea51961ff225a825beab9ca112188de367a3
-    sha256: 9a85e7f7ff73bc5e867bf55c2d938828b67fc2e9684b1e6c5f352868ae00262f
+    commit: 6eead6ed94bddc12fe22189880a0b8f722c70478
+    sha256: 35287094c7c041cbb8e6ad64738cfdb45fa31574f043ce0db6d1fe2efd5a7e15
 default:
   keep:
     - CHANGES.md
