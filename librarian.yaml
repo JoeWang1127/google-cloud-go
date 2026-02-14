@@ -227,6 +227,9 @@ libraries:
       - path: google/cloud/bigquery/storage/v1beta2
     keep:
       - aliasshim/aliasshim.go
+      - benchmarks/README.md
+      - benchmarks/bench.go
+      - benchmarks/benchmarked-queries.json
     skip_release: true
     go:
       go_apis:
