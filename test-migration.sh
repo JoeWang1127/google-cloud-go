@@ -18,6 +18,4 @@ do
   ./librarian generate "$pkg" > "$log_dir"/"$pkg"/log.txt 2>&1
   git status > "$log_dir"/"$pkg"/status.txt
   git diff > "$log_dir"/"$pkg"/diff.txt
-  git reset --hard > /dev/null
-  git clean -d -f > /dev/null
 done
