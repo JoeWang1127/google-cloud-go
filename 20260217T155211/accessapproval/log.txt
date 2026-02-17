@@ -1,0 +1,1 @@
+directory ../librarian/cmd/librarian outside main module or its selected dependencies
