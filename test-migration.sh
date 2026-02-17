@@ -18,4 +18,9 @@ do
   ./librarian generate "$pkg" > "$log_dir"/"$pkg"/log.txt 2>&1
   git status > "$log_dir"/"$pkg"/status.txt
   git diff > "$log_dir"/"$pkg"/diff.txt
+  git restore "$pkg"
+  git restore "internal/generated/snippets/$pkg"
 done
+
+echo "Remove librarian binary"
+rm librarian
