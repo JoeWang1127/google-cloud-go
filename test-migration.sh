@@ -13,7 +13,7 @@ git clean -d -f > /dev/null
 for pkg in $packages
 do
   echo "$(date -u +%H:%M:%S) Generating $pkg"
-  mkdir "$log_dir/$pkg"
+  mkdir -p "$log_dir/$pkg"
   go run ../librarian/cmd/librarian generate "$pkg" > "$log_dir"/"$pkg"/log.txt 2>&1
   git status > "$log_dir"/"$pkg"/status.txt
   git diff > "$log_dir"/"$pkg"/diff.txt
