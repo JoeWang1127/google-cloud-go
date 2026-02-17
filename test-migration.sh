@@ -10,8 +10,7 @@ echo "Results are in $log_dir"
 git reset --hard > /dev/null
 git clean -d -f > /dev/null
 echo "Build librarian binary"
-go build -C ../librarian -o librarian ./cmd/librarian
-mv ../librarian .
+go build -C ../librarian -o ../google-cloud-go/librarian ./cmd/librarian
 for pkg in $packages
 do
   echo "$(date -u +%H:%M:%S) Generating $pkg"
