@@ -21,6 +21,8 @@ sources:
 default:
   keep:
     - CHANGES.md
+    - go.mod
+    - go.sum
   output: .
   release_level: ga
   tag_format: '{name}/v{version}'
@@ -51,18 +53,18 @@ libraries:
     release_level: beta
     go:
       go_apis:
-        - client_directory: generativelanguage
+        - path: google/ai/generativelanguage/v1
+          client_directory: generativelanguage
           import_path: ai/generativelanguage
-          path: google/ai/generativelanguage/v1
-        - client_directory: generativelanguage
+        - path: google/ai/generativelanguage/v1alpha
+          client_directory: generativelanguage
           import_path: ai/generativelanguage
-          path: google/ai/generativelanguage/v1alpha
-        - client_directory: generativelanguage
+        - path: google/ai/generativelanguage/v1beta
+          client_directory: generativelanguage
           import_path: ai/generativelanguage
-          path: google/ai/generativelanguage/v1beta
-        - client_directory: generativelanguage
+        - path: google/ai/generativelanguage/v1beta2
+          client_directory: generativelanguage
           import_path: ai/generativelanguage
-          path: google/ai/generativelanguage/v1beta2
   - name: aiplatform
     version: 1.115.0
     apis:
@@ -226,146 +228,9 @@ libraries:
       - path: google/cloud/bigquery/storage/v1beta1
       - path: google/cloud/bigquery/storage/v1beta2
     keep:
-      - CHANGES.md
-      - README.md
+      - ^internal/generated/snippets/bigquery/v2/
       - aliasshim/aliasshim.go
-      - arrow.go
-      - benchmarks/README.md
-      - benchmarks/bench.go
-      - benchmarks/benchmarked-queries.json
-      - bigquery.go
-      - bigquery.replay
-      - bigquery_test.go
-      - copy.go
-      - copy_test.go
-      - dataset.go
-      - dataset_integration_test.go
-      - dataset_test.go
-      - doc.go
-      - error.go
-      - error_test.go
-      - examples_test.go
-      - external.go
-      - external_test.go
-      - extract.go
-      - extract_test.go
-      - file.go
-      - file_test.go
-      - gcs.go
-      - go.mod
-      - go.sum
-      - iam.go
-      - iam_test.go
-      - inserter.go
-      - inserter_test.go
-      - integration_test.go
-      - intervalvalue.go
-      - intervalvalue_test.go
-      - iterator.go
-      - iterator_test.go
-      - job.go
-      - job_test.go
-      - load.go
-      - load_test.go
-      - model.go
-      - model_test.go
-      - nulls.go
-      - nulls_test.go
-      - options.go
-      - options_test.go
-      - params.go
-      - params_test.go
-      - query.go
-      - query_test.go
-      - random.go
-      - rangevalue.go
-      - read_test.go
-      - routine.go
-      - routine_integration_test.go
-      - routine_test.go
-      - schema.go
-      - schema_test.go
-      - standardsql.go
-      - standardsql_test.go
-      - storage_bench_test.go
-      - storage_client.go
-      - storage_integration_test.go
-      - storage_iterator.go
-      - storage_iterator_test.go
-      - table.go
-      - table_integration_test.go
-      - table_test.go
-      - trace_integration_test.go
-      - value.go
-      - value_test.go
     skip_release: true
-    go:
-      go_apis:
-        - client_directory: analyticshub
-          import_path: bigquery/analyticshub
-          no_rest_numeric_enums: true
-          path: google/cloud/bigquery/analyticshub/v1
-        - client_directory: biglake
-          import_path: bigquery/biglake
-          path: google/cloud/bigquery/biglake/v1
-        - client_directory: biglake
-          import_path: bigquery/biglake
-          path: google/cloud/bigquery/biglake/v1alpha1
-        - client_directory: connection
-          import_path: bigquery/connection
-          path: google/cloud/bigquery/connection/v1
-        - client_directory: connection
-          import_path: bigquery/connection
-          path: google/cloud/bigquery/connection/v1beta1
-        - client_directory: dataexchange
-          import_path: bigquery/dataexchange
-          no_rest_numeric_enums: true
-          path: google/cloud/bigquery/dataexchange/v1beta1
-        - client_directory: datapolicies
-          import_path: bigquery/datapolicies
-          path: google/cloud/bigquery/datapolicies/v1
-        - client_directory: datapolicies
-          import_path: bigquery/datapolicies
-          no_rest_numeric_enums: true
-          path: google/cloud/bigquery/datapolicies/v1beta1
-        - client_directory: datapolicies
-          import_path: bigquery/datapolicies
-          path: google/cloud/bigquery/datapolicies/v2
-        - client_directory: datapolicies
-          import_path: bigquery/datapolicies
-          path: google/cloud/bigquery/datapolicies/v2beta1
-        - client_directory: datatransfer
-          import_path: bigquery/datatransfer
-          path: google/cloud/bigquery/datatransfer/v1
-        - client_directory: migration
-          import_path: bigquery/migration
-          no_rest_numeric_enums: true
-          path: google/cloud/bigquery/migration/v2
-        - client_directory: migration
-          import_path: bigquery/migration
-          no_rest_numeric_enums: true
-          path: google/cloud/bigquery/migration/v2alpha
-        - client_directory: reservation
-          import_path: bigquery/reservation
-          path: google/cloud/bigquery/reservation/v1
-        - client_directory: storage
-          import_path: bigquery/storage
-          no_rest_numeric_enums: true
-          path: google/cloud/bigquery/storage/v1
-        - client_directory: storage
-          import_path: bigquery/storage
-          path: google/cloud/bigquery/storage/v1alpha
-        - client_directory: storage
-          import_path: bigquery/storage
-          path: google/cloud/bigquery/storage/v1beta
-        - client_directory: storage
-          import_path: bigquery/storage
-          no_rest_numeric_enums: true
-          path: google/cloud/bigquery/storage/v1beta1
-        - client_directory: storage
-          import_path: bigquery/storage
-          no_rest_numeric_enums: true
-          path: google/cloud/bigquery/storage/v1beta2
   - name: bigquery/v2
     version: 0.0.0
     apis:
@@ -373,8 +238,8 @@ libraries:
     skip_release: true
     go:
       go_apis:
-        - client_directory: v2/apiv2
-          path: google/cloud/bigquery/v2
+        - path: google/cloud/bigquery/v2
+          client_directory: v2/apiv2
   - name: bigtable
     version: 1.42.0
     apis:
@@ -383,10 +248,10 @@ libraries:
     skip_release: true
     go:
       go_apis:
-        - disable_gapic: true
-          path: google/bigtable/v2
-        - disable_gapic: true
-          path: google/bigtable/admin/v2
+        - path: google/bigtable/v2
+          disable_gapic: true
+        - path: google/bigtable/admin/v2
+          disable_gapic: true
   - name: billing
     version: 1.21.0
     apis:
@@ -435,8 +300,8 @@ libraries:
       - aliasshim/aliasshim.go
     go:
       go_apis:
-        - client_directory: apiv1/v2
-          path: google/devtools/cloudbuild/v1
+        - path: google/devtools/cloudbuild/v1
+          client_directory: apiv1/v2
   - name: cloudcontrolspartner
     version: 1.5.0
     apis:
@@ -471,12 +336,12 @@ libraries:
       - aliasshim/aliasshim.go
     go:
       go_apis:
-        - client_directory: apiv2
-          path: google/cloud/tasks/v2
-        - client_directory: apiv2beta2
-          path: google/cloud/tasks/v2beta2
-        - client_directory: apiv2beta3
-          path: google/cloud/tasks/v2beta3
+        - path: google/cloud/tasks/v2
+          client_directory: apiv2
+        - path: google/cloud/tasks/v2beta2
+          client_directory: apiv2beta2
+        - path: google/cloud/tasks/v2beta3
+          client_directory: apiv2beta3
   - name: commerce
     version: 1.2.6
     apis:
@@ -525,9 +390,9 @@ libraries:
       - aliasshim/aliasshim.go
     go:
       go_apis:
-        - nested_protos:
+        - path: google/devtools/containeranalysis/v1beta1
+          nested_protos:
             - grafeas/grafeas.proto
-          path: google/devtools/containeranalysis/v1beta1
   - name: datacatalog
     version: 1.26.1
     apis:
@@ -596,8 +461,8 @@ libraries:
     skip_release: true
     go:
       go_apis:
-        - disable_gapic: true
-          path: google/datastore/v1
+        - path: google/datastore/v1
+          disable_gapic: true
   - name: datastream
     version: 1.15.1
     apis:
@@ -670,8 +535,8 @@ libraries:
       - aliasshim/aliasshim.go
     go:
       go_apis:
-        - client_directory: apiv1beta1
-          path: google/devtools/clouderrorreporting/v1beta1
+        - path: google/devtools/clouderrorreporting/v1beta1
+          client_directory: apiv1beta1
   - name: essentialcontacts
     version: 1.7.7
     apis:
@@ -705,8 +570,8 @@ libraries:
     skip_release: true
     go:
       go_apis:
-        - client_directory: apiv1/admin
-          path: google/firestore/admin/v1
+        - path: google/firestore/admin/v1
+          client_directory: apiv1/admin
   - name: functions
     version: 1.19.7
     apis:
@@ -835,8 +700,8 @@ libraries:
       - aliasshim/aliasshim.go
     go:
       go_apis:
-        - client_directory: autogen
-          path: google/longrunning
+        - path: google/longrunning
+          client_directory: autogen
   - name: lustre
     version: 0.2.1
     apis:
@@ -919,8 +784,8 @@ libraries:
       - aliasshim/aliasshim.go
     go:
       go_apis:
-        - client_directory: apiv3/v2
-          path: google/monitoring/v3
+        - path: google/monitoring/v3
+          client_directory: apiv3/v2
   - name: netapp
     version: 1.12.0
     apis:
@@ -1047,8 +912,8 @@ libraries:
     skip_release: true
     go:
       go_apis:
-        - client_directory: apiv1
-          path: google/pubsub/v1
+        - path: google/pubsub/v1
+          client_directory: apiv1
   - name: pubsublite
     version: 1.8.2
     apis:
@@ -1312,10 +1177,10 @@ libraries:
       - aliasshim/aliasshim.go
     go:
       go_apis:
-        - client_directory: apiv1
-          path: google/devtools/cloudtrace/v1
-        - client_directory: apiv2
-          path: google/devtools/cloudtrace/v2
+        - path: google/devtools/cloudtrace/v1
+          client_directory: apiv1
+        - path: google/devtools/cloudtrace/v2
+          client_directory: apiv2
   - name: translate
     version: 1.12.7
     apis:
