@@ -16,8 +16,8 @@ language: go
 repo: googleapis/google-cloud-go
 sources:
   googleapis:
-    commit: 120a55ddd98884993645c8ceb474dffbf8286595
-    sha256: ac2175cea14e8c0e1571d61ffb5565f3e7085c92e322f75dccd726a920669cf3
+    commit: 7ed997c15ea081c509db910b4ea06c9a79cf009e
+    sha256: ab11372ee48e226f2a22cd1ed799d64c9fcce117ba6f4ebbe54f51338ca26742
 default:
   keep:
     - CHANGES.md
@@ -228,6 +228,7 @@ libraries:
       - path: google/cloud/bigquery/storage/v1beta1
       - path: google/cloud/bigquery/storage/v1beta2
     keep:
+      - README.md
       - aliasshim/aliasshim.go
     skip_release: true
     go:
