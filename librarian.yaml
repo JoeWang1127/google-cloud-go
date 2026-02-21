@@ -907,17 +907,17 @@ libraries:
   - name: oslogin
     version: 1.14.7
     apis:
-      - path: google/cloud/oslogin/common
       - path: google/cloud/oslogin/v1
       - path: google/cloud/oslogin/v1beta
+      - path: google/cloud/oslogin/common
     go:
       go_apis:
-        - disable_gapic: true
-          path: google/cloud/oslogin/common
         - no_metadata: true
           path: google/cloud/oslogin/v1
         - no_metadata: true
           path: google/cloud/oslogin/v1beta
+        - disable_gapic: true
+          path: google/cloud/oslogin/common
   - name: parallelstore
     version: 0.12.0
     apis:
