@@ -910,6 +910,10 @@ libraries:
       - path: google/cloud/oslogin/common
       - path: google/cloud/oslogin/v1
       - path: google/cloud/oslogin/v1beta
+    go:
+      go_apis:
+        - disable_gapic: true
+          path: google/cloud/oslogin/common
   - name: parallelstore
     version: 0.12.0
     apis:
