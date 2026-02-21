@@ -862,8 +862,8 @@ libraries:
         - enabled_generator_features:
             - F_mtls_hard_bound_tokens
           import_path: monitoring
-          module_suffix: v2
           path: google/monitoring/v3
+          version_suffix: v2
         - client_directory: dashboard
           enabled_generator_features:
             - F_mtls_hard_bound_tokens
