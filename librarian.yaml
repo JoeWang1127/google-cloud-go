@@ -16,8 +16,8 @@ language: go
 repo: googleapis/google-cloud-go
 sources:
   googleapis:
-    commit: 7ed997c15ea081c509db910b4ea06c9a79cf009e
-    sha256: ab11372ee48e226f2a22cd1ed799d64c9fcce117ba6f4ebbe54f51338ca26742
+    commit: 1e6955c69d9cec0fbdae81137d4eeec480ca392f
+    sha256: f42749ae5a869a742f1e4360ecd97ff9b58a3ad52a03267558d85baa193533f9
 default:
   keep:
     - CHANGES.md
@@ -35,6 +35,11 @@ libraries:
     version: 1.9.7
     apis:
       - path: google/identity/accesscontextmanager/v1
+    go:
+      go_apis:
+        - client_directory: accesscontextmanager
+          import_path: accesscontextmanager
+          path: google/identity/accesscontextmanager/v1
   - name: advisorynotifications
     version: 1.5.6
     apis:
@@ -79,6 +84,11 @@ libraries:
     version: 0.30.1
     apis:
       - path: google/analytics/admin/v1alpha
+    go:
+      go_apis:
+        - client_directory: admin
+          import_path: analytics/admin
+          path: google/analytics/admin/v1alpha
   - name: apigateway
     version: 1.7.7
     apis:
@@ -99,6 +109,11 @@ libraries:
     version: 1.2.7
     apis:
       - path: google/api/apikeys/v2
+    go:
+      go_apis:
+        - client_directory: apikeys
+          import_path: apikeys
+          path: google/api/apikeys/v2
   - name: apiregistry
     version: 0.2.0
     apis:
@@ -108,6 +123,11 @@ libraries:
     version: 1.9.7
     apis:
       - path: google/appengine/v1
+    go:
+      go_apis:
+        - client_directory: appengine
+          import_path: appengine
+          path: google/appengine/v1
   - name: apphub
     version: 0.4.0
     apis:
@@ -119,15 +139,42 @@ libraries:
       - path: google/apps/events/subscriptions/v1beta
       - path: google/apps/meet/v2
       - path: google/apps/meet/v2beta
+    go:
+      go_apis:
+        - client_directory: subscriptions
+          import_path: apps/events/subscriptions
+          path: google/apps/events/subscriptions/v1
+        - client_directory: subscriptions
+          import_path: apps/events/subscriptions
+          path: google/apps/events/subscriptions/v1beta
+        - client_directory: meet
+          import_path: apps/meet
+          path: google/apps/meet/v2
+        - client_directory: meet
+          import_path: apps/meet
+          path: google/apps/meet/v2beta
   - name: area120
     version: 0.9.7
     apis:
       - path: google/area120/tables/v1alpha1
+    go:
+      go_apis:
+        - client_directory: tables
+          import_path: area120/tables
+          path: google/area120/tables/v1alpha1
   - name: artifactregistry
     version: 1.19.0
     apis:
       - path: google/devtools/artifactregistry/v1
       - path: google/devtools/artifactregistry/v1beta2
+    go:
+      go_apis:
+        - client_directory: artifactregistry
+          import_path: artifactregistry
+          path: google/devtools/artifactregistry/v1
+        - client_directory: artifactregistry
+          import_path: artifactregistry
+          path: google/devtools/artifactregistry/v1beta2
   - name: asset
     version: 1.22.0
     apis:
@@ -195,7 +242,7 @@ libraries:
       - path: google/cloud/bigquery/storage/v1beta1
       - path: google/cloud/bigquery/storage/v1beta2
     keep:
-      - README.md
+      - ^internal/generated/snippets/bigquery/v2/
     skip_release: true
     go:
       go_apis:
@@ -215,7 +262,6 @@ libraries:
           path: google/cloud/bigquery/storage/v1beta1
         - no_rest_numeric_enums: true
           path: google/cloud/bigquery/storage/v1beta2
-      nested_module: v2
   - name: bigquery/v2
     version: 0.0.0
     apis:
@@ -223,8 +269,7 @@ libraries:
     skip_release: true
     go:
       go_apis:
-        - client_directory: v2/apiv2
-          no_rest_numeric_enums: true
+        - no_rest_numeric_enums: true
           path: google/cloud/bigquery/v2
   - name: bigtable
     version: 1.42.0
@@ -234,9 +279,13 @@ libraries:
     skip_release: true
     go:
       go_apis:
-        - disable_gapic: true
+        - client_directory: bigtable
+          disable_gapic: true
+          import_path: bigtable
           path: google/bigtable/v2
-        - disable_gapic: true
+        - client_directory: admin
+          disable_gapic: true
+          import_path: bigtable/admin
           path: google/bigtable/admin/v2
   - name: billing
     version: 1.21.0
@@ -265,6 +314,11 @@ libraries:
     version: 0.18.0
     apis:
       - path: google/chat/v1
+    go:
+      go_apis:
+        - client_directory: chat
+          import_path: chat
+          path: google/chat/v1
   - name: chronicle
     version: 0.2.0
     apis:
@@ -276,8 +330,12 @@ libraries:
       - path: google/devtools/cloudbuild/v2
     go:
       go_apis:
-        - client_directory: apiv1/v2
+        - client_directory: cloudbuild
+          import_path: cloudbuild
           path: google/devtools/cloudbuild/v1
+        - client_directory: cloudbuild
+          import_path: cloudbuild
+          path: google/devtools/cloudbuild/v2
   - name: cloudcontrolspartner
     version: 1.5.0
     apis:
@@ -291,11 +349,24 @@ libraries:
     version: 0.4.6
     apis:
       - path: google/devtools/cloudprofiler/v2
+    go:
+      go_apis:
+        - client_directory: cloudprofiler
+          import_path: cloudprofiler
+          path: google/devtools/cloudprofiler/v2
   - name: cloudquotas
     version: 1.6.0
     apis:
       - path: google/api/cloudquotas/v1
       - path: google/api/cloudquotas/v1beta
+    go:
+      go_apis:
+        - client_directory: cloudquotas
+          import_path: cloudquotas
+          path: google/api/cloudquotas/v1
+        - client_directory: cloudquotas
+          import_path: cloudquotas
+          path: google/api/cloudquotas/v1beta
   - name: cloudsecuritycompliance
     version: 0.1.0
     apis:
@@ -354,13 +425,20 @@ libraries:
     version: 1.46.0
     apis:
       - path: google/container/v1
+    go:
+      go_apis:
+        - client_directory: container
+          import_path: container
+          path: google/container/v1
   - name: containeranalysis
     version: 0.14.2
     apis:
       - path: google/devtools/containeranalysis/v1beta1
     go:
       go_apis:
-        - nested_protos:
+        - client_directory: containeranalysis
+          import_path: containeranalysis
+          nested_protos:
             - grafeas/grafeas.proto
           path: google/devtools/containeranalysis/v1beta1
   - name: datacatalog
@@ -381,6 +459,11 @@ libraries:
     version: 0.11.1
     apis:
       - path: google/dataflow/v1beta3
+    go:
+      go_apis:
+        - client_directory: dataflow
+          import_path: dataflow
+          path: google/dataflow/v1beta3
   - name: dataform
     version: 0.12.1
     apis:
@@ -398,6 +481,11 @@ libraries:
     version: 0.0.0
     apis:
       - path: google/ads/datamanager/v1
+    go:
+      go_apis:
+        - client_directory: datamanager
+          import_path: datamanager
+          path: google/ads/datamanager/v1
   - name: dataplex
     version: 1.28.0
     apis:
@@ -424,8 +512,13 @@ libraries:
     skip_release: true
     go:
       go_apis:
-        - disable_gapic: true
+        - client_directory: datastore
+          disable_gapic: true
+          import_path: datastore
           path: google/datastore/v1
+        - client_directory: admin
+          import_path: datastore/admin
+          path: google/datastore/admin/v1
   - name: datastream
     version: 1.15.1
     apis:
@@ -462,6 +555,11 @@ libraries:
     version: 1.28.0
     apis:
       - path: google/privacy/dlp/v2
+    go:
+      go_apis:
+        - client_directory: dlp
+          import_path: dlp
+          path: google/privacy/dlp/v2
   - name: documentai
     version: 1.40.0
     apis:
@@ -485,7 +583,8 @@ libraries:
       - path: google/devtools/clouderrorreporting/v1beta1
     go:
       go_apis:
-        - client_directory: apiv1beta1
+        - client_directory: errorreporting
+          import_path: errorreporting
           path: google/devtools/clouderrorreporting/v1beta1
   - name: essentialcontacts
     version: 1.7.7
@@ -512,8 +611,12 @@ libraries:
     skip_release: true
     go:
       go_apis:
-        - client_directory: apiv1/admin
+        - client_directory: apiv1
+          import_path: firestore
           path: google/firestore/admin/v1
+        - client_directory: firestore
+          import_path: firestore
+          path: google/firestore/v1
   - name: functions
     version: 1.19.7
     apis:
@@ -571,6 +674,23 @@ libraries:
       - path: google/iam/v2
       - path: google/iam/v3
       - path: google/iam/v3beta
+    go:
+      go_apis:
+        - client_directory: credentials
+          import_path: iam/credentials
+          path: google/iam/credentials/v1
+        - client_directory: iam
+          import_path: iam
+          path: google/iam/v1
+        - client_directory: iam
+          import_path: iam
+          path: google/iam/v2
+        - client_directory: iam
+          import_path: iam
+          path: google/iam/v3
+        - client_directory: iam
+          import_path: iam
+          path: google/iam/v3beta
   - name: iap
     version: 1.11.3
     apis:
@@ -614,13 +734,19 @@ libraries:
     version: 1.13.2
     apis:
       - path: google/logging/v2
+    go:
+      go_apis:
+        - client_directory: logging
+          import_path: logging
+          path: google/logging/v2
   - name: longrunning
     version: 0.8.0
     apis:
       - path: google/longrunning
     go:
       go_apis:
-        - client_directory: autogen
+        - client_directory: longrunning
+          import_path: longrunning/autogen
           no_rest_numeric_enums: true
           path: google/longrunning
   - name: lustre
@@ -654,10 +780,32 @@ libraries:
       - path: google/maps/solar/v1
     go:
       go_apis:
-        - path: google/maps/fleetengine/v1
+        - client_directory: fleetengine
+          import_path: maps/fleetengine
+          path: google/maps/fleetengine/v1
           proto_package: maps.fleetengine.v1
-        - path: google/maps/fleetengine/delivery/v1
+        - client_directory: delivery
+          import_path: maps/fleetengine/delivery
+          path: google/maps/fleetengine/delivery/v1
           proto_package: maps.fleetengine.delivery.v1
+        - client_directory: addressvalidation
+          import_path: maps/addressvalidation
+          path: google/maps/addressvalidation/v1
+        - client_directory: areainsights
+          import_path: maps/areainsights
+          path: google/maps/areainsights/v1
+        - client_directory: places
+          import_path: maps/places
+          path: google/maps/places/v1
+        - client_directory: routeoptimization
+          import_path: maps/routeoptimization
+          path: google/maps/routeoptimization/v1
+        - client_directory: routing
+          import_path: maps/routing
+          path: google/maps/routing/v2
+        - client_directory: solar
+          import_path: maps/solar
+          path: google/maps/solar/v1
   - name: mediatranslation
     version: 0.9.7
     apis:
@@ -695,8 +843,15 @@ libraries:
       - path: google/monitoring/v3
     go:
       go_apis:
-        - client_directory: apiv3/v2
+        - client_directory: monitoring
+          import_path: monitoring
           path: google/monitoring/v3
+        - client_directory: dashboard
+          import_path: monitoring/dashboard
+          path: google/monitoring/dashboard/v1
+        - client_directory: metricsscope
+          import_path: monitoring/metricsscope
+          path: google/monitoring/metricsscope/v1
   - name: netapp
     version: 1.12.0
     apis:
@@ -797,7 +952,8 @@ libraries:
     skip_release: true
     go:
       go_apis:
-        - client_directory: apiv1
+        - client_directory: pubsub
+          import_path: pubsub/v2
           path: google/pubsub/v1
   - name: pubsublite
     version: 1.8.2
@@ -902,6 +1058,11 @@ libraries:
     version: 1.14.6
     apis:
       - path: google/api/servicecontrol/v1
+    go:
+      go_apis:
+        - client_directory: servicecontrol
+          import_path: servicecontrol
+          path: google/api/servicecontrol/v1
   - name: servicedirectory
     version: 1.12.7
     apis:
@@ -915,13 +1076,20 @@ libraries:
     version: 1.10.7
     apis:
       - path: google/api/servicemanagement/v1
+    go:
+      go_apis:
+        - client_directory: servicemanagement
+          import_path: servicemanagement
+          path: google/api/servicemanagement/v1
   - name: serviceusage
     version: 1.9.7
     apis:
       - path: google/api/serviceusage/v1
     go:
       go_apis:
-        - no_rest_numeric_enums: true
+        - client_directory: serviceusage
+          import_path: serviceusage
+          no_rest_numeric_enums: true
           path: google/api/serviceusage/v1
   - name: shell
     version: 1.8.7
@@ -958,6 +1126,89 @@ libraries:
       - path: google/shopping/merchant/reports/v1beta
       - path: google/shopping/merchant/reviews/v1beta
       - path: google/shopping/type
+    go:
+      go_apis:
+        - client_directory: css
+          import_path: shopping/css
+          path: google/shopping/css/v1
+        - client_directory: accounts
+          import_path: shopping/merchant/accounts
+          path: google/shopping/merchant/accounts/v1
+        - client_directory: accounts
+          import_path: shopping/merchant/accounts
+          path: google/shopping/merchant/accounts/v1beta
+        - client_directory: conversions
+          import_path: shopping/merchant/conversions
+          path: google/shopping/merchant/conversions/v1
+        - client_directory: conversions
+          import_path: shopping/merchant/conversions
+          path: google/shopping/merchant/conversions/v1beta
+        - client_directory: datasources
+          import_path: shopping/merchant/datasources
+          path: google/shopping/merchant/datasources/v1
+        - client_directory: datasources
+          import_path: shopping/merchant/datasources
+          path: google/shopping/merchant/datasources/v1beta
+        - client_directory: notifications
+          import_path: shopping/merchant/notifications
+          path: google/shopping/merchant/notifications/v1
+        - client_directory: notifications
+          import_path: shopping/merchant/notifications
+          path: google/shopping/merchant/notifications/v1beta
+        - client_directory: ordertracking
+          import_path: shopping/merchant/ordertracking
+          path: google/shopping/merchant/ordertracking/v1
+        - client_directory: ordertracking
+          import_path: shopping/merchant/ordertracking
+          path: google/shopping/merchant/ordertracking/v1beta
+        - client_directory: products
+          import_path: shopping/merchant/products
+          path: google/shopping/merchant/products/v1
+        - client_directory: products
+          import_path: shopping/merchant/products
+          path: google/shopping/merchant/products/v1beta
+        - client_directory: productstudio
+          import_path: shopping/merchant/productstudio
+          path: google/shopping/merchant/productstudio/v1alpha
+        - client_directory: promotions
+          import_path: shopping/merchant/promotions
+          path: google/shopping/merchant/promotions/v1
+        - client_directory: promotions
+          import_path: shopping/merchant/promotions
+          path: google/shopping/merchant/promotions/v1beta
+        - client_directory: quota
+          import_path: shopping/merchant/quota
+          path: google/shopping/merchant/quota/v1
+        - client_directory: quota
+          import_path: shopping/merchant/quota
+          path: google/shopping/merchant/quota/v1beta
+        - client_directory: inventories
+          import_path: shopping/merchant/inventories
+          path: google/shopping/merchant/inventories/v1
+        - client_directory: inventories
+          import_path: shopping/merchant/inventories
+          path: google/shopping/merchant/inventories/v1beta
+        - client_directory: issueresolution
+          import_path: shopping/merchant/issueresolution
+          path: google/shopping/merchant/issueresolution/v1
+        - client_directory: issueresolution
+          import_path: shopping/merchant/issueresolution
+          path: google/shopping/merchant/issueresolution/v1beta
+        - client_directory: lfp
+          import_path: shopping/merchant/lfp
+          path: google/shopping/merchant/lfp/v1
+        - client_directory: lfp
+          import_path: shopping/merchant/lfp
+          path: google/shopping/merchant/lfp/v1beta
+        - client_directory: reports
+          import_path: shopping/merchant/reports
+          path: google/shopping/merchant/reports/v1
+        - client_directory: reports
+          import_path: shopping/merchant/reports
+          path: google/shopping/merchant/reports/v1beta
+        - client_directory: reviews
+          import_path: shopping/merchant/reviews
+          path: google/shopping/merchant/reviews/v1beta
   - name: spanner
     version: 1.87.0
     apis:
@@ -967,6 +1218,23 @@ libraries:
       - path: google/spanner/executor/v1
       - path: google/spanner/v1
     skip_release: true
+    go:
+      go_apis:
+        - client_directory: adapter
+          import_path: spanner/adapter
+          path: google/spanner/adapter/v1
+        - client_directory: database
+          import_path: spanner/admin/database
+          path: google/spanner/admin/database/v1
+        - client_directory: instance
+          import_path: spanner/admin/instance
+          path: google/spanner/admin/instance/v1
+        - client_directory: spanner
+          import_path: spanner
+          path: google/spanner/v1
+        - client_directory: executor
+          import_path: spanner/executor
+          path: google/spanner/executor/v1
   - name: speech
     version: 1.29.0
     apis:
@@ -982,6 +1250,13 @@ libraries:
     go:
       delete_generation_output_paths:
         - internal/generated/snippets/storage/internal
+      go_apis:
+        - client_directory: control
+          import_path: storage/control
+          path: google/storage/control/v2
+        - client_directory: storage
+          import_path: storage/internal
+          path: google/storage/v2
   - name: storagebatchoperations
     version: 0.2.0
     apis:
@@ -994,10 +1269,20 @@ libraries:
     version: 1.13.1
     apis:
       - path: google/storagetransfer/v1
+    go:
+      go_apis:
+        - client_directory: storagetransfer
+          import_path: storagetransfer
+          path: google/storagetransfer/v1
   - name: streetview
     version: 0.2.6
     apis:
       - path: google/streetview/publish/v1
+    go:
+      go_apis:
+        - client_directory: publish
+          import_path: streetview/publish
+          path: google/streetview/publish/v1
   - name: support
     version: 1.4.1
     apis:
@@ -1027,9 +1312,11 @@ libraries:
       - path: google/devtools/cloudtrace/v2
     go:
       go_apis:
-        - client_directory: apiv1
+        - client_directory: trace
+          import_path: trace
           path: google/devtools/cloudtrace/v1
-        - client_directory: apiv2
+        - client_directory: trace
+          import_path: trace
           path: google/devtools/cloudtrace/v2
   - name: translate
     version: 1.12.7
