@@ -843,10 +843,10 @@ libraries:
       - path: google/monitoring/v3
     go:
       go_apis:
-        - client_directory: apiv3/v2
-          enabled_generator_features:
+        - enabled_generator_features:
             - F_mtls_hard_bound_tokens
           import_path: monitoring
+          module_suffix: v2
           path: google/monitoring/v3
         - client_directory: dashboard
           enabled_generator_features:
