@@ -843,13 +843,19 @@ libraries:
       - path: google/monitoring/v3
     go:
       go_apis:
-        - client_directory: monitoring
+        - client_directory: apiv3/v2
+          enabled_generator_features:
+            - F_mtls_hard_bound_tokens
           import_path: monitoring
           path: google/monitoring/v3
         - client_directory: dashboard
+          enabled_generator_features:
+            - F_mtls_hard_bound_tokens
           import_path: monitoring/dashboard
           path: google/monitoring/dashboard/v1
         - client_directory: metricsscope
+          enabled_generator_features:
+            - F_mtls_hard_bound_tokens
           import_path: monitoring/metricsscope
           path: google/monitoring/metricsscope/v1
   - name: netapp
