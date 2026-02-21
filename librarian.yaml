@@ -914,6 +914,10 @@ libraries:
       go_apis:
         - disable_gapic: true
           path: google/cloud/oslogin/common
+        - no_metadata: true
+          path: google/cloud/oslogin/v1
+        - no_metadata: true
+          path: google/cloud/oslogin/v1beta
   - name: parallelstore
     version: 0.12.0
     apis:
