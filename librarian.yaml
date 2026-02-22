@@ -242,7 +242,7 @@ libraries:
       - path: google/cloud/bigquery/storage/v1beta1
       - path: google/cloud/bigquery/storage/v1beta2
     keep:
-      - ^internal/generated/snippets/bigquery/v2/
+      - README.md
     skip_release: true
     go:
       go_apis:
@@ -262,6 +262,7 @@ libraries:
           path: google/cloud/bigquery/storage/v1beta1
         - no_rest_numeric_enums: true
           path: google/cloud/bigquery/storage/v1beta2
+      nested_modules: v2
   - name: bigquery/v2
     version: 0.0.0
     apis:
