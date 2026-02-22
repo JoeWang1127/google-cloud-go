@@ -359,14 +359,6 @@ libraries:
     apis:
       - path: google/api/cloudquotas/v1
       - path: google/api/cloudquotas/v1beta
-    go:
-      go_apis:
-        - client_directory: cloudquotas
-          import_path: cloudquotas
-          path: google/api/cloudquotas/v1
-        - client_directory: cloudquotas
-          import_path: cloudquotas
-          path: google/api/cloudquotas/v1beta
   - name: cloudsecuritycompliance
     version: 0.1.0
     apis:
