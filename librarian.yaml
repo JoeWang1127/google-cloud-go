@@ -103,10 +103,6 @@ libraries:
     version: 1.2.7
     apis:
       - path: google/api/apikeys/v2
-    go:
-      go_apis:
-        - import_path: apikeys
-          path: google/api/apikeys/v2
   - name: apiregistry
     version: 0.2.0
     apis:
