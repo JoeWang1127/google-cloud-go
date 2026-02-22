@@ -16,7 +16,7 @@ language: go
 repo: googleapis/google-cloud-go
 sources:
   googleapis:
-    commit: 1e6955c69d9cec0fbdae81137d4eeec480ca392f
+    commit: 9a477cd3c26a704130e2a2fb44a40281d9312e4c
     sha256: f42749ae5a869a742f1e4360ecd97ff9b58a3ad52a03267558d85baa193533f9
 default:
   keep:
@@ -262,7 +262,7 @@ libraries:
           path: google/cloud/bigquery/storage/v1beta1
         - no_rest_numeric_enums: true
           path: google/cloud/bigquery/storage/v1beta2
-      nested_modules: v2
+      nested_module: v2
   - name: bigquery/v2
     version: 0.0.0
     apis:
