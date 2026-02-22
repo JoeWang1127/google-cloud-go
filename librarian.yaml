@@ -320,11 +320,9 @@ libraries:
       - path: google/devtools/cloudbuild/v2
     go:
       go_apis:
-        - client_directory: cloudbuild
-          import_path: cloudbuild
+        - import_path: cloudbuild
           path: google/devtools/cloudbuild/v1
-        - client_directory: cloudbuild
-          import_path: cloudbuild
+        - import_path: cloudbuild
           path: google/devtools/cloudbuild/v2
   - name: cloudcontrolspartner
     version: 1.5.0
