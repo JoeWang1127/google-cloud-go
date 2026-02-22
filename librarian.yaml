@@ -154,11 +154,9 @@ libraries:
       - path: google/devtools/artifactregistry/v1beta2
     go:
       go_apis:
-        - client_directory: artifactregistry
-          import_path: artifactregistry
+        - import_path: artifactregistry
           path: google/devtools/artifactregistry/v1
-        - client_directory: artifactregistry
-          import_path: artifactregistry
+        - import_path: artifactregistry
           path: google/devtools/artifactregistry/v1beta2
   - name: asset
     version: 1.22.0
