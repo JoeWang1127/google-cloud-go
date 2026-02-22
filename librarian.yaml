@@ -377,6 +377,14 @@ libraries:
       - path: google/cloud/tasks/v2
       - path: google/cloud/tasks/v2beta2
       - path: google/cloud/tasks/v2beta3
+    go:
+      go_apis:
+        - import_path: cloudtasks
+          path: google/cloud/tasks/v2
+        - import_path: cloudtasks
+          path: google/cloud/tasks/v2beta2
+        - import_path: cloudtasks
+          path: google/cloud/tasks/v2beta3
   - name: commerce
     version: 1.2.6
     apis:
