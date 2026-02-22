@@ -145,6 +145,7 @@ libraries:
       go_apis:
         - client_directory: tables
           import_path: area120/tables
+          no_metadata: true
           path: google/area120/tables/v1alpha1
   - name: artifactregistry
     version: 1.19.0
