@@ -152,12 +152,6 @@ libraries:
     apis:
       - path: google/devtools/artifactregistry/v1
       - path: google/devtools/artifactregistry/v1beta2
-    go:
-      go_apis:
-        - import_path: artifactregistry
-          path: google/devtools/artifactregistry/v1
-        - import_path: artifactregistry
-          path: google/devtools/artifactregistry/v1beta2
   - name: asset
     version: 1.22.0
     apis:
