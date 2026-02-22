@@ -200,7 +200,7 @@ libraries:
     apis:
       - path: google/cloud/batch/v1
     keep:
-      - ^batch/apiv1/iam_policy_client\.go$
+      - apiv1/iam_policy_client.go
   - name: beyondcorp
     version: 1.2.0
     apis:
