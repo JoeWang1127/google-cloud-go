@@ -105,8 +105,7 @@ libraries:
       - path: google/api/apikeys/v2
     go:
       go_apis:
-        - client_directory: apikeys
-          import_path: apikeys
+        - import_path: apikeys
           path: google/api/apikeys/v2
   - name: apiregistry
     version: 0.2.0
