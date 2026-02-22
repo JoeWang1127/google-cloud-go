@@ -162,12 +162,14 @@ libraries:
       go_apis:
         - enabled_generator_features:
             - F_mtls_hard_bound_tokens
+          no_metadata: true
           path: google/cloud/asset/v1
         - enabled_generator_features:
             - F_mtls_hard_bound_tokens
           path: google/cloud/asset/v1p2beta1
         - enabled_generator_features:
             - F_mtls_hard_bound_tokens
+          no_metadata: true
           path: google/cloud/asset/v1p5beta1
   - name: assuredworkloads
     version: 1.13.0
