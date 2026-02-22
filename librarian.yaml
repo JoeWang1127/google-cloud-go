@@ -440,7 +440,7 @@ libraries:
       - path: google/cloud/datacatalog/v1
       - path: google/cloud/datacatalog/v1beta1
     keep:
-      - datacatalog/apiv1/iam_policy_client.go
+      - apiv1/iam_policy_client.go
     go:
       go_apis:
         - no_rest_numeric_enums: true
