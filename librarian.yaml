@@ -509,6 +509,8 @@ libraries:
     apis:
       - path: google/datastore/admin/v1
       - path: google/datastore/v1
+    keep:
+      - README.md
     skip_release: true
     go:
       go_apis:
