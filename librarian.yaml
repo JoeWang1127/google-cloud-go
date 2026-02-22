@@ -511,6 +511,8 @@ libraries:
       - path: google/datastore/v1
     keep:
       - README.md
+      - internal/gaepb/datastore_ae_v3.pb.go
+      - internal/gaepb/datastore_ae_v3.proto
     skip_release: true
     go:
       go_apis:
@@ -522,7 +524,6 @@ libraries:
             - F_mtls_hard_bound_tokens
           import_path: datastore/admin
           path: google/datastore/admin/v1
-      nested_module: internal
   - name: datastream
     version: 1.15.1
     apis:
