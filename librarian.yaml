@@ -270,7 +270,10 @@ libraries:
     skip_release: true
     go:
       go_apis:
-        - no_rest_numeric_enums: true
+        - enabled_generator_features:
+            - F_wrapper_types_for_page_size
+          import_path: bigquery/v2
+          no_rest_numeric_enums: true
           path: google/cloud/bigquery/v2
   - name: bigtable
     version: 1.42.0
