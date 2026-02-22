@@ -517,7 +517,7 @@ libraries:
       - path: google/cloud/datastream/v1
       - path: google/cloud/datastream/v1alpha1
     keep:
-      - ^datastream/apiv1/iam_policy_client\.go$
+      - apiv1/iam_policy_client.go
   - name: deploy
     version: 1.27.3
     apis:
