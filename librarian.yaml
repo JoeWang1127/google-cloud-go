@@ -611,7 +611,7 @@ libraries:
     skip_release: true
     go:
       go_apis:
-        - client_directory: apiv1
+        - client_directory: admin
           enabled_generator_features:
             - F_ordered_routing_headers
             - F_mtls_hard_bound_tokens
