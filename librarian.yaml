@@ -451,6 +451,11 @@ libraries:
     version: 0.11.1
     apis:
       - path: google/dataflow/v1beta3
+    go:
+      go_apis:
+        - enabled_generator_features:
+            - F_mtls_hard_bound_tokens
+          path: google/dataflow/v1beta3
   - name: dataform
     version: 0.12.1
     apis:
