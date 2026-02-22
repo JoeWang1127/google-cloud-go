@@ -46,7 +46,6 @@ libraries:
       - path: google/ai/generativelanguage/v1alpha
       - path: google/ai/generativelanguage/v1beta
       - path: google/ai/generativelanguage/v1beta2
-    release_level: beta
     go:
       go_apis:
         - client_directory: generativelanguage
