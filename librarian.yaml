@@ -118,8 +118,7 @@ libraries:
       - path: google/appengine/v1
     go:
       go_apis:
-        - client_directory: appengine
-          import_path: appengine
+        - import_path: appengine
           path: google/appengine/v1
   - name: apphub
     version: 0.4.0
