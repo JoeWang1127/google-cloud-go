@@ -517,6 +517,8 @@ libraries:
           import_path: datastore
           path: google/datastore/v1
         - client_directory: admin
+          enabled_generator_features:
+            - F_mtls_hard_bound_tokens
           import_path: datastore/admin
           path: google/datastore/admin/v1
   - name: datastream
