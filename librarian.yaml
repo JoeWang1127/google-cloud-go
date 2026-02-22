@@ -427,7 +427,7 @@ libraries:
       - apiv1/container_analysis_client_example_test.go
       - apiv1/doc.go
       - apiv1/integration_test.go
-      - version.go
+      - apiv1/version.go
     go:
       go_apis:
         - nested_protos:
