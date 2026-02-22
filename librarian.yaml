@@ -468,11 +468,6 @@ libraries:
     version: 0.0.0
     apis:
       - path: google/ads/datamanager/v1
-    go:
-      go_apis:
-        - client_directory: datamanager
-          import_path: datamanager
-          path: google/ads/datamanager/v1
   - name: dataplex
     version: 1.28.0
     apis:
