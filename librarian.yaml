@@ -1239,6 +1239,8 @@ libraries:
         - client_directory: reviews
           import_path: shopping/merchant/reviews
           path: google/shopping/merchant/reviews/v1beta
+        - disable_gapic: true
+          path: google/shopping/type
   - name: spanner
     version: 1.87.0
     apis:
