@@ -309,11 +309,6 @@ libraries:
     version: 0.18.0
     apis:
       - path: google/chat/v1
-    go:
-      go_apis:
-        - client_directory: chat
-          import_path: chat
-          path: google/chat/v1
   - name: chronicle
     version: 0.2.0
     apis:
