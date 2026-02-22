@@ -392,6 +392,7 @@ libraries:
           path: google/cloud/compute/v1
         - no_rest_numeric_enums: true
           path: google/cloud/compute/v1beta
+      nested_module: metadata
   - name: compute/metadata
     version: 0.9.0
     skip_release: true
