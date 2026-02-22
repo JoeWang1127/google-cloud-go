@@ -522,6 +522,7 @@ libraries:
             - F_mtls_hard_bound_tokens
           import_path: datastore/admin
           path: google/datastore/admin/v1
+      nested_module: internal
   - name: datastream
     version: 1.15.1
     apis:
