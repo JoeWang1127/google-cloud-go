@@ -374,6 +374,11 @@ libraries:
     version: 1.2.6
     apis:
       - path: google/cloud/commerce/consumer/procurement/v1
+    go:
+      go_apis:
+        - client_directory: procurement
+          import_path: commerce/consumer/procurement
+          path: google/cloud/commerce/consumer/procurement/v1
   - name: compute
     version: 1.54.0
     apis:
