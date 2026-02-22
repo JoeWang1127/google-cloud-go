@@ -547,11 +547,6 @@ libraries:
     version: 1.28.0
     apis:
       - path: google/privacy/dlp/v2
-    go:
-      go_apis:
-        - client_directory: dlp
-          import_path: dlp
-          path: google/privacy/dlp/v2
   - name: documentai
     version: 1.40.0
     apis:
