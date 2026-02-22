@@ -209,6 +209,8 @@ libraries:
       - path: google/cloud/beyondcorp/appgateways/v1
       - path: google/cloud/beyondcorp/clientconnectorservices/v1
       - path: google/cloud/beyondcorp/clientgateways/v1
+    keep:
+      - apiv1/.repo-metadata.json
   - name: bigquery
     version: 1.73.1
     apis:
