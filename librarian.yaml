@@ -451,11 +451,6 @@ libraries:
     version: 0.11.1
     apis:
       - path: google/dataflow/v1beta3
-    go:
-      go_apis:
-        - client_directory: dataflow
-          import_path: dataflow
-          path: google/dataflow/v1beta3
   - name: dataform
     version: 0.12.1
     apis:
