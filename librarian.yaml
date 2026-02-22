@@ -572,11 +572,6 @@ libraries:
     version: 0.4.0
     apis:
       - path: google/devtools/clouderrorreporting/v1beta1
-    go:
-      go_apis:
-        - client_directory: errorreporting
-          import_path: errorreporting
-          path: google/devtools/clouderrorreporting/v1beta1
   - name: essentialcontacts
     version: 1.7.7
     apis:
