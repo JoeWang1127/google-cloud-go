@@ -345,8 +345,7 @@ libraries:
       - path: google/devtools/cloudprofiler/v2
     go:
       go_apis:
-        - client_directory: cloudprofiler
-          import_path: cloudprofiler
+        - import_path: cloudprofiler
           path: google/devtools/cloudprofiler/v2
   - name: cloudquotas
     version: 1.6.0
