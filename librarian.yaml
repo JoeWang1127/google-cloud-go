@@ -322,6 +322,7 @@ libraries:
       go_apis:
         - import_path: cloudbuild
           path: google/devtools/cloudbuild/v1
+          version_suffix: v2
         - import_path: cloudbuild
           path: google/devtools/cloudbuild/v2
   - name: cloudcontrolspartner
