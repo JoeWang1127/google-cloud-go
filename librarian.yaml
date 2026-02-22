@@ -512,8 +512,7 @@ libraries:
     skip_release: true
     go:
       go_apis:
-        - client_directory: datastore
-          disable_gapic: true
+        - disable_gapic: true
           import_path: datastore
           path: google/datastore/v1
         - client_directory: admin
