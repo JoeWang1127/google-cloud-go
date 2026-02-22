@@ -116,10 +116,6 @@ libraries:
     version: 1.9.7
     apis:
       - path: google/appengine/v1
-    go:
-      go_apis:
-        - import_path: appengine
-          path: google/appengine/v1
   - name: apphub
     version: 0.4.0
     apis:
