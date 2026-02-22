@@ -276,9 +276,7 @@ libraries:
     skip_release: true
     go:
       go_apis:
-        - client_directory: bigtable
-          disable_gapic: true
-          import_path: bigtable
+        - disable_gapic: true
           path: google/bigtable/v2
         - client_directory: admin
           disable_gapic: true
