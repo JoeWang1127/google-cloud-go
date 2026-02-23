@@ -914,6 +914,8 @@ libraries:
     version: 1.11.10
     apis:
       - path: google/cloud/orchestration/airflow/service/v1
+    keep:
+      - apiv1/.repo-metadata.json
     go:
       go_apis:
         - client_directory: service
