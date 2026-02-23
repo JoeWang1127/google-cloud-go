@@ -1110,8 +1110,7 @@ libraries:
       - path: google/api/servicecontrol/v1
     go:
       go_apis:
-        - client_directory: servicecontrol
-          import_path: servicecontrol
+        - import_path: servicecontrol
           path: google/api/servicecontrol/v1
   - name: servicedirectory
     version: 1.12.7
