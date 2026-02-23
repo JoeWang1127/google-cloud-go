@@ -1059,7 +1059,7 @@ libraries:
     apis:
       - path: google/cloud/run/v2
     keep:
-      - ^run/apiv2/locations_client\.go$
+      - apiv2/locations_client.go
   - name: saasplatform
     version: 0.1.0
     apis:
