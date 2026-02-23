@@ -926,6 +926,15 @@ libraries:
     apis:
       - path: google/cloud/orgpolicy/v1
       - path: google/cloud/orgpolicy/v2
+    go:
+      - go_apis:
+          - disable_gapic: true
+            enabled_generator_features:
+              - F_mtls_hard_bound_tokens
+            path: google/cloud/orgpolicy/v1
+          - enabled_generator_features:
+              - F_mtls_hard_bound_tokens
+            path: google/cloud/orgpolicy/v2
   - name: osconfig
     version: 1.16.0
     apis:
