@@ -669,23 +669,6 @@ libraries:
       - path: google/iam/v2
       - path: google/iam/v3
       - path: google/iam/v3beta
-    go:
-      go_apis:
-        - client_directory: credentials
-          import_path: iam/credentials
-          path: google/iam/credentials/v1
-        - client_directory: iam
-          import_path: iam
-          path: google/iam/v1
-        - client_directory: iam
-          import_path: iam
-          path: google/iam/v2
-        - client_directory: iam
-          import_path: iam
-          path: google/iam/v3
-        - client_directory: iam
-          import_path: iam
-          path: google/iam/v3beta
   - name: iap
     version: 1.11.3
     apis:
