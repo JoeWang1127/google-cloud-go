@@ -675,6 +675,7 @@ libraries:
           enabled_generator_features:
             - F_mtls_hard_bound_tokens
           import_path: iam/credentials
+          no_metadata: true
           path: google/iam/credentials/v1
         - enabled_generator_features:
             - F_mtls_hard_bound_tokens
@@ -688,6 +689,7 @@ libraries:
         - enabled_generator_features:
             - F_mtls_hard_bound_tokens
           path: google/iam/v3beta
+      nested_module: admin
   - name: iap
     version: 1.11.3
     apis:
