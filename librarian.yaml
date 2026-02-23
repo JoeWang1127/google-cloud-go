@@ -678,19 +678,15 @@ libraries:
           path: google/iam/credentials/v1
         - enabled_generator_features:
             - F_mtls_hard_bound_tokens
-          import_path: iam
           path: google/iam/v1
         - enabled_generator_features:
             - F_mtls_hard_bound_tokens
-          import_path: iam
           path: google/iam/v2
         - enabled_generator_features:
             - F_mtls_hard_bound_tokens
-          import_path: iam
           path: google/iam/v3
         - enabled_generator_features:
             - F_mtls_hard_bound_tokens
-          import_path: iam
           path: google/iam/v3beta
   - name: iap
     version: 1.11.3
