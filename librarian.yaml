@@ -1318,11 +1318,6 @@ libraries:
     version: 1.13.1
     apis:
       - path: google/storagetransfer/v1
-    go:
-      go_apis:
-        - client_directory: storagetransfer
-          import_path: storagetransfer
-          path: google/storagetransfer/v1
   - name: streetview
     version: 0.2.6
     apis:
