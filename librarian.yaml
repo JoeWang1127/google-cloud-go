@@ -914,6 +914,11 @@ libraries:
     version: 1.11.10
     apis:
       - path: google/cloud/orchestration/airflow/service/v1
+    go:
+      go_apis:
+        - client_directory: service
+          import_path: orchestration/airflow/service
+          path: google/cloud/orchestration/airflow/service/v1
   - name: orgpolicy
     version: 1.15.1
     apis:
