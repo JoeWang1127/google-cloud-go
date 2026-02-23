@@ -999,7 +999,8 @@ libraries:
     skip_release: true
     go:
       go_apis:
-        - import_path: pubsub/v2
+        - client_directory: pubsub
+          import_path: pubsub/v2
           no_metadata: true
           path: google/pubsub/v1
   - name: pubsublite
