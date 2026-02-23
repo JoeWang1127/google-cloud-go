@@ -1127,8 +1127,7 @@ libraries:
       - path: google/api/servicemanagement/v1
     go:
       go_apis:
-        - client_directory: servicemanagement
-          import_path: servicemanagement
+        - import_path: servicemanagement
           path: google/api/servicemanagement/v1
   - name: serviceusage
     version: 1.9.7
