@@ -16,7 +16,7 @@ language: go
 repo: googleapis/google-cloud-go
 sources:
   googleapis:
-    commit: 9a477cd3c26a704130e2a2fb44a40281d9312e4c
+    commit: 87e3579c041a50f985f8de71e9494c8fc85d520b
     sha256: f42749ae5a869a742f1e4360ecd97ff9b58a3ad52a03267558d85baa193533f9
 default:
   keep:
@@ -711,6 +711,11 @@ libraries:
     apis:
       - path: google/cloud/kms/inventory/v1
       - path: google/cloud/kms/v1
+    go:
+      go_apis:
+        - enabled_generator_features:
+            - F_mtls_hard_bound_tokens
+          path: google/cloud/kms/inventory/v1
   - name: language
     version: 1.14.6
     apis:
