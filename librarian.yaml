@@ -388,9 +388,11 @@ libraries:
       - path: google/cloud/compute/v1beta
     go:
       go_apis:
-        - no_rest_numeric_enums: true
+        - has_diregapic: true
+          no_rest_numeric_enums: true
           path: google/cloud/compute/v1
-        - no_rest_numeric_enums: true
+        - has_diregapic: true
+          no_rest_numeric_enums: true
           path: google/cloud/compute/v1beta
       nested_module: metadata
   - name: compute/metadata
