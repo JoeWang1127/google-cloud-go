@@ -1356,12 +1356,8 @@ libraries:
       - path: google/devtools/cloudtrace/v2
     go:
       go_apis:
-        - client_directory: trace
-          import_path: trace
+        - no_metadata: true
           path: google/devtools/cloudtrace/v1
-        - client_directory: trace
-          import_path: trace
-          path: google/devtools/cloudtrace/v2
   - name: translate
     version: 1.12.7
     apis:
