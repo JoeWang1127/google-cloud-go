@@ -746,8 +746,7 @@ libraries:
       - path: google/longrunning
     go:
       go_apis:
-        - client_directory: longrunning
-          import_path: longrunning/autogen
+        - import_path: longrunning/autogen
           no_rest_numeric_enums: true
           path: google/longrunning
   - name: lustre
