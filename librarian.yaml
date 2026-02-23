@@ -1404,7 +1404,7 @@ libraries:
     apis:
       - path: google/cloud/vmmigration/v1
     keep:
-      - ^vmmigration/apiv1/iam_policy_client\.go$
+      - apiv1/iam_policy_client.go
   - name: vmwareengine
     version: 1.3.6
     apis:
