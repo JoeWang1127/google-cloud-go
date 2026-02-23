@@ -1135,8 +1135,7 @@ libraries:
       - path: google/api/serviceusage/v1
     go:
       go_apis:
-        - client_directory: serviceusage
-          import_path: serviceusage
+        - import_path: serviceusage
           no_rest_numeric_enums: true
           path: google/api/serviceusage/v1
   - name: shell
