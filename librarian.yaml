@@ -1000,6 +1000,8 @@ libraries:
     go:
       go_apis:
         - client_directory: pubsub
+          enabled_generator_features:
+            - F_mtls_hard_bound_tokens
           import_path: pubsub/v2
           no_metadata: true
           path: google/pubsub/v1
