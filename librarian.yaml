@@ -74,6 +74,14 @@ libraries:
       - path: google/cloud/alloydb/v1
       - path: google/cloud/alloydb/v1alpha
       - path: google/cloud/alloydb/v1beta
+    go:
+      go_apis:
+        - disable_gapic: true
+          path: google/cloud/alloydb/connectors/v1
+        - disable_gapic: true
+          path: google/cloud/alloydb/connectors/v1alpha
+        - disable_gapic: true
+          path: google/cloud/alloydb/connectors/v1beta
   - name: analytics
     version: 0.30.1
     apis:
