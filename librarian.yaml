@@ -628,6 +628,9 @@ libraries:
     apis:
       - path: google/cloud/gkeconnect/gateway/v1
       - path: google/cloud/gkeconnect/gateway/v1beta1
+    keep:
+      - apiv1/.repo-metadata.json
+      - apiv1beta1/.repo-metadata.json
     go:
       go_apis:
         - no_rest_numeric_enums: true
