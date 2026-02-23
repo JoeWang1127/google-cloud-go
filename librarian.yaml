@@ -739,10 +739,7 @@ libraries:
     apis:
       - path: google/logging/v2
     go:
-      go_apis:
-        - client_directory: logging
-          import_path: logging
-          path: google/logging/v2
+      nested_module: logadmin
   - name: longrunning
     version: 0.8.0
     apis:
