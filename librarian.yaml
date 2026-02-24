@@ -1305,6 +1305,8 @@ libraries:
     apis:
       - path: google/storage/control/v2
       - path: google/storage/v2
+    keep:
+      - README.md
     skip_release: true
     go:
       delete_generation_output_paths:
@@ -1313,7 +1315,7 @@ libraries:
         - client_directory: control
           import_path: storage/control
           path: google/storage/control/v2
-        - client_directory: storage
+        - client_directory: internal
           import_path: storage/internal
           path: google/storage/v2
   - name: storagebatchoperations
