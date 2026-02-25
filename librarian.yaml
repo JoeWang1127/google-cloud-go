@@ -186,7 +186,9 @@ libraries:
       - path: google/cloud/assuredworkloads/v1beta1
   - name: auth
     version: 0.18.1
+    output: "."
     skip_release: true
+    veneer: true
   - name: auth/oauth2adapt
     version: 0.2.8
     skip_release: true
