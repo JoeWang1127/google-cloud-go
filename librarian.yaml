@@ -272,9 +272,9 @@ libraries:
     skip_release: true
     go:
       go_apis:
-        - enabled_generator_features:
+        - client_directory: bigquery
+          enabled_generator_features:
             - F_wrapper_types_for_page_size
-          client_directory: bigquery
           import_path: bigquery/v2
           no_rest_numeric_enums: true
           path: google/cloud/bigquery/v2
@@ -286,12 +286,12 @@ libraries:
     skip_release: true
     go:
       go_apis:
-        - disable_gapic: true
-          path: google/bigtable/v2
         - client_directory: admin
           disable_gapic: true
           import_path: bigtable/admin
           path: google/bigtable/admin/v2
+        - disable_gapic: true
+          path: google/bigtable/v2
   - name: billing
     version: 1.21.0
     apis:
@@ -375,10 +375,16 @@ libraries:
     go:
       go_apis:
         - import_path: cloudtasks
+          enabled_generator_features:
+            - F_mtls_hard_bound_tokens
           path: google/cloud/tasks/v2
         - import_path: cloudtasks
+          enabled_generator_features:
+            - F_mtls_hard_bound_tokens
           path: google/cloud/tasks/v2beta2
         - import_path: cloudtasks
+          enabled_generator_features:
+            - F_mtls_hard_bound_tokens
           path: google/cloud/tasks/v2beta3
   - name: commerce
     version: 1.2.6
@@ -515,14 +521,16 @@ libraries:
     skip_release: true
     go:
       go_apis:
-        - disable_gapic: true
-          import_path: datastore
-          path: google/datastore/v1
         - client_directory: admin
           enabled_generator_features:
             - F_mtls_hard_bound_tokens
           import_path: datastore/admin
           path: google/datastore/admin/v1
+        - disable_gapic: true
+          enabled_generator_features:
+            - F_mtls_hard_bound_tokens
+          import_path: datastore
+          path: google/datastore/v1
   - name: datastream
     version: 1.15.1
     apis:
@@ -584,10 +592,20 @@ libraries:
     version: 0.4.0
     apis:
       - path: google/devtools/clouderrorreporting/v1beta1
+    go:
+      go_apis:
+        - enabled_generator_features:
+            - F_mtls_hard_bound_tokens
+          path: google/devtools/clouderrorreporting/v1beta1
   - name: essentialcontacts
     version: 1.7.7
     apis:
       - path: google/cloud/essentialcontacts/v1
+    go:
+      go_apis:
+        - enabled_generator_features:
+            - F_mtls_hard_bound_tokens
+          path: google/cloud/essentialcontacts/v1
   - name: eventarc
     version: 1.18.0
     apis:
@@ -611,14 +629,14 @@ libraries:
       go_apis:
         - client_directory: apiv1
           enabled_generator_features:
-            - F_ordered_routing_headers
             - F_mtls_hard_bound_tokens
+            - F_ordered_routing_headers
           import_path: firestore
           path: google/firestore/admin/v1
           version_suffix: admin
         - enabled_generator_features:
-            - F_ordered_routing_headers
             - F_mtls_hard_bound_tokens
+            - F_ordered_routing_headers
           import_path: firestore
           path: google/firestore/v1
   - name: functions
@@ -728,6 +746,9 @@ libraries:
         - enabled_generator_features:
             - F_mtls_hard_bound_tokens
           path: google/cloud/kms/inventory/v1
+        - enabled_generator_features:
+            - F_mtls_hard_bound_tokens
+          path: google/cloud/kms/v1
   - name: language
     version: 1.14.6
     apis:
@@ -751,6 +772,10 @@ libraries:
     apis:
       - path: google/logging/v2
     go:
+      go_apis:
+        - enabled_generator_features:
+            - F_mtls_hard_bound_tokens
+          path: google/logging/v2
       nested_module: logadmin
   - name: longrunning
     version: 0.8.0
@@ -1046,6 +1071,14 @@ libraries:
     apis:
       - path: google/cloud/recommender/v1
       - path: google/cloud/recommender/v1beta1
+    go:
+      go_apis:
+        - enabled_generator_features:
+            - F_mtls_hard_bound_tokens
+          path: google/cloud/recommender/v1
+        - enabled_generator_features:
+            - F_mtls_hard_bound_tokens
+          path: google/cloud/recommender/v1beta1
   - name: redis
     version: 1.18.3
     apis:
@@ -1057,6 +1090,14 @@ libraries:
     apis:
       - path: google/cloud/resourcemanager/v2
       - path: google/cloud/resourcemanager/v3
+    go:
+      go_apis:
+        - enabled_generator_features:
+            - F_mtls_hard_bound_tokens
+          path: google/cloud/resourcemanager/v2
+        - enabled_generator_features:
+            - F_mtls_hard_bound_tokens
+          path: google/cloud/resourcemanager/v3
   - name: retail
     version: 1.26.0
     apis:
@@ -1086,6 +1127,14 @@ libraries:
     apis:
       - path: google/cloud/secretmanager/v1
       - path: google/cloud/secretmanager/v1beta2
+    go:
+      go_apis:
+        - enabled_generator_features:
+            - F_mtls_hard_bound_tokens
+          path: google/cloud/secretmanager/v1
+        - enabled_generator_features:
+            - F_mtls_hard_bound_tokens
+          path: google/cloud/secretmanager/v1beta2
   - name: securesourcemanager
     version: 1.4.1
     apis:
@@ -1371,8 +1420,13 @@ libraries:
       - path: google/devtools/cloudtrace/v2
     go:
       go_apis:
-        - no_metadata: true
+        - enabled_generator_features:
+            - F_mtls_hard_bound_tokens
+          no_metadata: true
           path: google/devtools/cloudtrace/v1
+        - enabled_generator_features:
+            - F_mtls_hard_bound_tokens
+          path: google/devtools/cloudtrace/v2
   - name: translate
     version: 1.12.7
     apis:
