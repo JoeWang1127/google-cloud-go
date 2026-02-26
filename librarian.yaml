@@ -1317,7 +1317,8 @@ libraries:
         - client_directory: control
           import_path: storage/control
           path: google/storage/control/v2
-        - client_directory: storage
+        - client_directory: internal
+          client_package_override: storage
           import_path: storage/internal
           path: google/storage/v2
   - name: storagebatchoperations
