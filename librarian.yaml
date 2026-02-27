@@ -1332,23 +1332,12 @@ libraries:
     skip_release: true
     go:
       go_apis:
-        - client_directory: adapter
-          import_path: spanner/adapter
-          path: google/spanner/adapter/v1
-        - client_directory: database
-          import_path: spanner/admin/database
-          no_metadata: true
+        - no_metadata: true
           path: google/spanner/admin/database/v1
-        - client_directory: instance
-          import_path: spanner/admin/instance
-          no_metadata: true
+        - no_metadata: true
           path: google/spanner/admin/instance/v1
-        - import_path: spanner
-          no_metadata: true
+        - no_metadata: true
           path: google/spanner/v1
-        - client_directory: executor
-          import_path: spanner/executor
-          path: google/spanner/executor/v1
   - name: speech
     version: 1.29.0
     apis:
