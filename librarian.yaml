@@ -1335,12 +1335,14 @@ libraries:
           path: google/spanner/adapter/v1
         - client_directory: database
           import_path: spanner/admin/database
+          no_metadata: true
           path: google/spanner/admin/database/v1
         - client_directory: instance
           import_path: spanner/admin/instance
+          no_metadata: true
           path: google/spanner/admin/instance/v1
-        - client_directory: spanner
-          import_path: spanner
+        - import_path: spanner
+          no_metadata: true
           path: google/spanner/v1
         - client_directory: executor
           import_path: spanner/executor
