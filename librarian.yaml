@@ -1327,6 +1327,8 @@ libraries:
       - path: google/spanner/admin/instance/v1
       - path: google/spanner/executor/v1
       - path: google/spanner/v1
+    keep:
+      - README.md
     skip_release: true
     go:
       go_apis:
