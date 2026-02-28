@@ -26,6 +26,8 @@ default:
   output: .
   release_level: ga
   tag_format: '{name}/v{version}'
+release:
+  branch: main
 libraries:
   - name: accessapproval
     version: 1.8.8
