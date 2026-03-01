@@ -1,8 +1,8 @@
-appengine
-apphub
-apps
-area120
-artifactregistry
-asset
-assuredworkloads
-auth
+automl
+backupdr
+baremetalsolution
+batch
+beyondcorp
+bigquery
+bigquery/v2
+bigtable
