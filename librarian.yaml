@@ -1189,9 +1189,9 @@ libraries:
       - path: google/shopping/merchant/reviews/v1beta
       - path: google/shopping/type
     go:
-      - go_apis:
-          - disable_gapic: true
-            path: google/shopping/type
+      go_apis:
+        - disable_gapic: true
+          path: google/shopping/type
   - name: spanner
     version: 1.87.0
     apis:
