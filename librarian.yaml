@@ -985,6 +985,7 @@ libraries:
   - name: pubsub
     version: 1.50.1
     skip_release: true
+    veneer: true
   - name: pubsub/v2
     version: 2.4.0
     apis:
