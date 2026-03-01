@@ -169,6 +169,7 @@ libraries:
   - name: auth/oauth2adapt
     version: 0.2.8
     skip_release: true
+    veneer: true
   - name: automl
     version: 1.15.0
     apis:
