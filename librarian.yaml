@@ -225,6 +225,8 @@ libraries:
       - .repo-metadata.json
       - doc.go
       - README.md
+      - storage_client.go
+      - storage/managedwriter/adapt/doc.go
       - storage/managedwriter/doc.go
     skip_release: true
     go:
