@@ -1,2 +1,13 @@
 accessapproval
 accesscontextmanager
+advisorynotifications
+ai
+aiplatform
+alloydb
+analytics
+apigateway
+apigeeconnect
+apigeeregistry
+apihub
+apikeys
+apiregistry
