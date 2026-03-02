@@ -223,12 +223,7 @@ libraries:
       - path: google/cloud/bigquery/storage/v1beta1
       - path: google/cloud/bigquery/storage/v1beta2
     keep:
-      - .repo-metadata.json
-      - doc.go
       - README.md
-      - storage_client.go
-      - storage/managedwriter/adapt/doc.go
-      - storage/managedwriter/doc.go
     skip_release: true
     go:
       go_apis:
@@ -248,7 +243,6 @@ libraries:
           path: google/cloud/bigquery/storage/v1beta1
         - no_rest_numeric_enums: true
           path: google/cloud/bigquery/storage/v1beta2
-      nested_module: v2
   - name: bigquery/v2
     version: 0.0.0
     apis:
