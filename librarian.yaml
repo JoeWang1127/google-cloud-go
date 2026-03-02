@@ -168,6 +168,7 @@ libraries:
     veneer: true
   - name: auth/oauth2adapt
     version: 0.2.8
+    output: "."
     skip_release: true
     veneer: true
   - name: automl
