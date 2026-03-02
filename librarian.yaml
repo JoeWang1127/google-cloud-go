@@ -164,6 +164,9 @@ libraries:
   - name: auth
     version: 0.18.1
     output: "."
+    keep:
+      - internal/version.go
+      - README.md
     skip_release: true
     veneer: true
   - name: auth/oauth2adapt
