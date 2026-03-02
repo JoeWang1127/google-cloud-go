@@ -270,8 +270,10 @@ libraries:
     go:
       go_apis:
         - disable_gapic: true
+          no_metadata: true
           path: google/bigtable/admin/v2
         - disable_gapic: true
+          no_metadata: true
           path: google/bigtable/v2
   - name: billing
     version: 1.21.0
@@ -360,17 +362,17 @@ libraries:
       - path: google/cloud/tasks/v2beta3
     go:
       go_apis:
-        - client_directory: cloudtasks
+        - client_package: cloudtasks
           enabled_generator_features:
             - F_mtls_hard_bound_tokens
           import_path: cloudtasks/apiv2
           path: google/cloud/tasks/v2
-        - client_directory: cloudtasks
+        - client_package: cloudtasks
           enabled_generator_features:
             - F_mtls_hard_bound_tokens
           import_path: cloudtasks/apiv2beta2
           path: google/cloud/tasks/v2beta2
-        - client_directory: cloudtasks
+        - client_package: cloudtasks
           enabled_generator_features:
             - F_mtls_hard_bound_tokens
           import_path: cloudtasks/apiv2beta3
@@ -435,6 +437,7 @@ libraries:
         - import_path: containeranalysis/apiv1beta1
           nested_protos:
             - grafeas/grafeas.proto
+          no_metadata: true
           path: google/devtools/containeranalysis/v1beta1
   - name: datacatalog
     version: 1.26.1
@@ -584,7 +587,7 @@ libraries:
       - path: google/devtools/clouderrorreporting/v1beta1
     go:
       go_apis:
-        - client_directory: errorreporting
+        - client_package: errorreporting
           enabled_generator_features:
             - F_mtls_hard_bound_tokens
           import_path: errorreporting/apiv1beta1
@@ -619,7 +622,7 @@ libraries:
     skip_release: true
     go:
       go_apis:
-        - client_directory: apiv1
+        - client_package: apiv1
           enabled_generator_features:
             - F_mtls_hard_bound_tokens
             - F_ordered_routing_headers
@@ -771,7 +774,7 @@ libraries:
       - path: google/longrunning
     go:
       go_apis:
-        - client_directory: longrunning
+        - client_package: longrunning
           import_path: longrunning/autogen
           no_rest_numeric_enums: true
           path: google/longrunning
@@ -1285,13 +1288,13 @@ libraries:
       - path: google/devtools/cloudtrace/v2
     go:
       go_apis:
-        - client_directory: trace
+        - client_package: trace
           enabled_generator_features:
             - F_mtls_hard_bound_tokens
           import_path: trace/apiv1
           no_metadata: true
           path: google/devtools/cloudtrace/v1
-        - client_directory: trace
+        - client_package: trace
           enabled_generator_features:
             - F_mtls_hard_bound_tokens
           import_path: trace/apiv2
@@ -1333,6 +1336,7 @@ libraries:
         - import_path: vision/v2/apiv1
           path: google/cloud/vision/v1
         - import_path: vision/v2/apiv1p1beta1
+          no_metadata: true
           path: google/cloud/vision/v1p1beta1
       module_path_version: v2
   - name: visionai
