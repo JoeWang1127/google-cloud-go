@@ -992,8 +992,6 @@ libraries:
     version: 2.4.0
     apis:
       - path: google/pubsub/v1
-    keep:
-      - doc.go
     skip_release: true
     go:
       go_apis:
