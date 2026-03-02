@@ -172,6 +172,8 @@ libraries:
   - name: auth/oauth2adapt
     version: 0.2.8
     output: "."
+    keep:
+      - internal/version.go
     skip_release: true
     veneer: true
   - name: automl
