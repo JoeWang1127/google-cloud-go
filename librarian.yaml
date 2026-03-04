@@ -16,8 +16,8 @@ language: go
 repo: googleapis/google-cloud-go
 sources:
   googleapis:
-    commit: 87e3579c041a50f985f8de71e9494c8fc85d520b
-    sha256: 0be31168e2f38d0e076c518286256522406e622f25d3457125fa168facc34ed5
+    commit: 572d5d51926dfa9e7509e12ec61e98ce19650f7c
+    sha256: 12e2687e7f3362151a934da87674b4b648444c12fa3f3595cf90509996499a82
 default:
   output: .
   release_level: ga
@@ -64,11 +64,11 @@ libraries:
       - path: google/cloud/alloydb/v1beta
     go:
       go_apis:
-        - disable_gapic: true
+        - proto_only: true
           path: google/cloud/alloydb/connectors/v1
-        - disable_gapic: true
+        - proto_only: true
           path: google/cloud/alloydb/connectors/v1alpha
-        - disable_gapic: true
+        - proto_only: true
           path: google/cloud/alloydb/connectors/v1beta
   - name: analytics
     version: 0.30.1
@@ -267,11 +267,12 @@ libraries:
     skip_release: true
     go:
       go_apis:
-        - disable_gapic: true
-          no_metadata: true
+        - no_metadata: true
+          proto_only: true
           path: google/bigtable/admin/v2
-        - disable_gapic: true
-          no_metadata: true
+
+        - no_metadata: true
+          proto_only: true
           path: google/bigtable/v2
   - name: billing
     version: 1.21.0
@@ -374,8 +375,6 @@ libraries:
     version: 1.2.6
     apis:
       - path: google/cloud/commerce/consumer/procurement/v1
-    keep:
-      - apiv1/.repo-metadata.json
   - name: compute
     version: 1.54.0
     apis:
@@ -383,10 +382,10 @@ libraries:
       - path: google/cloud/compute/v1beta
     go:
       go_apis:
-        - has_diregapic: true
+        - diregapic: true
           no_rest_numeric_enums: true
           path: google/cloud/compute/v1
-        - has_diregapic: true
+        - diregapic: true
           no_rest_numeric_enums: true
           path: google/cloud/compute/v1beta
       nested_module: metadata
@@ -498,17 +497,13 @@ libraries:
     apis:
       - path: google/datastore/admin/v1
       - path: google/datastore/v1
-    keep:
-      - README.md
-      - internal/gaepb/datastore_ae_v3.pb.go
-      - internal/gaepb/datastore_ae_v3.proto
     skip_release: true
     go:
       go_apis:
         - enabled_generator_features:
             - F_mtls_hard_bound_tokens
           path: google/datastore/admin/v1
-        - disable_gapic: true
+        - proto_only: true
           enabled_generator_features:
             - F_mtls_hard_bound_tokens
           path: google/datastore/v1
@@ -892,7 +887,7 @@ libraries:
       - path: google/cloud/orgpolicy/v2
     go:
       go_apis:
-        - disable_gapic: true
+        - proto_only: true
           enabled_generator_features:
             - F_mtls_hard_bound_tokens
           path: google/cloud/orgpolicy/v1
@@ -919,7 +914,7 @@ libraries:
           path: google/cloud/oslogin/v1
         - no_metadata: true
           path: google/cloud/oslogin/v1beta
-        - disable_gapic: true
+        - proto_only: true
           path: google/cloud/oslogin/common
   - name: parallelstore
     version: 0.12.0
@@ -1169,7 +1164,7 @@ libraries:
       - path: google/shopping/type
     go:
       go_apis:
-        - disable_gapic: true
+        - proto_only: true
           path: google/shopping/type
   - name: spanner
     version: 1.87.0
