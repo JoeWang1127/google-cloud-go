@@ -311,11 +311,6 @@ libraries:
     apis:
       - path: google/devtools/cloudbuild/v1
       - path: google/devtools/cloudbuild/v2
-    keep:
-      - apiv1/cloud_build_client.go
-      - apiv1/cloud_build_client_example_test.go
-      - apiv1/doc.go
-      - apiv1/version.go
     go:
       go_apis:
         - import_path: cloudbuild/apiv1/v2
