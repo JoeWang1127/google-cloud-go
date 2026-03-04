@@ -422,11 +422,7 @@ libraries:
     apis:
       - path: google/devtools/containeranalysis/v1beta1
     keep:
-      - apiv1/container_analysis_client.go
-      - apiv1/container_analysis_client_example_test.go
-      - apiv1/doc.go
-      - apiv1/integration_test.go
-      - apiv1/version.go
+      - apiv1beta1/grafeas/grafeaspb/grafeas.pb.go
     go:
       go_apis:
         - import_path: containeranalysis/apiv1beta1
