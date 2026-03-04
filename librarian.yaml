@@ -421,6 +421,8 @@ libraries:
     keep:
       - apiv1beta1/grafeas/grafeaspb/grafeas.pb.go
     go:
+      delete_generation_output_paths:
+        - google.golang.org
       go_apis:
         - import_path: containeranalysis/apiv1beta1
           nested_protos:
