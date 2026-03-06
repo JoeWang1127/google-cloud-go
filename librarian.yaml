@@ -1051,7 +1051,9 @@ libraries:
       - path: google/cloud/retail/v2beta
   - name: root-module
     version: 0.123.0
+    output: "."
     skip_release: true
+    veneer: true
   - name: run
     version: 1.15.0
     apis:
