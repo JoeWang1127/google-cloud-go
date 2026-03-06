@@ -1186,7 +1186,8 @@ libraries:
       - path: google/shopping/type
     go:
       go_apis:
-        - proto_only: true
+        - import_path: shopping/type
+          proto_only: true
           path: google/shopping/type
   - name: spanner
     version: 1.88.0
