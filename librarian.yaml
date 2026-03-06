@@ -400,6 +400,9 @@ libraries:
       nested_module: metadata
   - name: compute/metadata
     version: 0.9.0
+    keep:
+      - README.md
+      - internal/version.go
     output: "."
     skip_release: true
     veneer: true
@@ -670,6 +673,9 @@ libraries:
       - path: google/cloud/gkerecommender/v1
   - name: grafeas
     version: 0.3.17
+    keep:
+      - README.md
+      - internal/version.go
     output: "."
     veneer: true
   - name: gsuiteaddons
@@ -966,10 +972,16 @@ libraries:
       - path: google/cloud/privilegedaccessmanager/v1
   - name: profiler
     version: 0.4.3
+    keep:
+      - README.md
+      - internal/version.go
     output: "."
     veneer: true
   - name: pubsub
     version: 1.50.1
+    keep:
+      - README.md
+      - internal/version.go
     output: "."
     skip_release: true
     veneer: true
@@ -1299,6 +1311,9 @@ libraries:
       - path: google/cloud/vectorsearch/v1beta
   - name: vertexai
     version: 0.15.0
+    keep:
+      - README.md
+      - internal/version.go
     output: "."
     skip_release: true
     veneer: true
