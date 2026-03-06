@@ -965,6 +965,8 @@ libraries:
       - path: google/cloud/privilegedaccessmanager/v1
   - name: profiler
     version: 0.4.3
+    output: "."
+    veneer: true
   - name: pubsub
     version: 1.50.1
     output: "."
