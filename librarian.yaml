@@ -1295,7 +1295,9 @@ libraries:
       - path: google/cloud/vectorsearch/v1beta
   - name: vertexai
     version: 0.15.0
+    output: "."
     skip_release: true
+    veneer: true
   - name: video
     version: 1.27.1
     apis:
