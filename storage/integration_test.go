@@ -455,7 +455,8 @@ func TestIntegration_MRDManyReads(t *testing.T) {
 				log.Printf("failed to delete test object: %v", err)
 			}
 		}()
-		reader, err := obj.NewMultiRangeDownloader(ctx)
+		reader, err := obj.NewMultiRangeDownloader(ctx, WithMinConnections(3))
+		manager := reader.impl.(*multiRangeDownloaderManager)
 		if err != nil {
 			t.Fatalf("NewMultiRangeDownloader: %v", err)
 		}
@@ -471,6 +472,18 @@ func TestIntegration_MRDManyReads(t *testing.T) {
 			})
 		}
 		reader.Wait()
+		// Check if ranges have been distributed across all streams
+		for id, stream := range manager.streams {
+			if stream.statsRangeBytes == 0 ||
+				stream.statsRanges == 0 {
+				t.Errorf("stream %v received no ranges: statsRanges: %v, statsRangeBytes: %v", id, stream.statsRanges, stream.statsRangeBytes)
+			}
+			if stream.totalRangeBytes != 0 ||
+				stream.totalRanges != 0 {
+				t.Errorf("totalRangeBytes or totalRanges for stream: %v is not zero. totalRangeBytes: %v, totalRanges: %v", id, stream.totalRangeBytes, stream.totalRanges)
+			}
+		}
+
 		if err = reader.Close(); err != nil {
 			t.Fatalf("Error while closing reader %v", err)
 		}
@@ -623,6 +636,189 @@ func TestIntegration_MRDWithReadHandle(t *testing.T) {
 		}
 		if err := mrd2.Close(); err != nil {
 			t.Fatalf("Error while closing reader created with read handle: %v", err)
+		}
+	})
+}
+
+func TestIntegration_MRDScaleUpConnections(t *testing.T) {
+	multiTransportTest(skipAllButZonal(context.Background(), "Bidi Read API test"), t, func(t *testing.T, ctx context.Context, bucket string, _ string, client *Client) {
+		content := make([]byte, 1<<10)
+		rand.New(rand.NewSource(0)).Read(content)
+		objName := "MultiRangeDownloaderConcurrentReads"
+
+		// Upload test data.
+		obj := client.Bucket(bucket).Object(objName)
+		if err := writeObject(ctx, obj, "text/plain", content); err != nil {
+			t.Fatal(err)
+		}
+		t.Cleanup(func() {
+			if err := obj.Delete(context.Background()); err != nil {
+				log.Printf("failed to delete test object: %v", err)
+			}
+		})
+		maxConnections := 3
+		// Initializing targetPendingBytes to 1 to make sure manager
+		// definitely scales up with any load.
+		reader, err := obj.NewMultiRangeDownloader(ctx, WithMaxConnections(maxConnections), WithTargetPendingBytes(1))
+		manager := reader.impl.(*multiRangeDownloaderManager)
+		if err != nil {
+			t.Fatalf("NewMultiRangeDownloader: %v", err)
+		}
+
+		const (
+			addCount  = 100
+			rangeSize = 100
+		)
+
+		type rangeRes struct {
+			buf       bytes.Buffer
+			offset    int64
+			limit     int64
+			gotOffset int64
+			gotLimit  int64
+			err       error
+		}
+		results := make([]*rangeRes, addCount)
+
+		var wg sync.WaitGroup
+		wg.Add(len(results))
+
+		for i := 0; i < addCount; i++ {
+			// Randomize offset/limit slightly to ensure varied request patterns.
+			offset := int64(0)
+			limit := int64(rangeSize)
+
+			r := &rangeRes{offset: offset, limit: limit}
+			results[i] = r
+
+			reader.Add(&r.buf, offset, limit, func(o, l int64, err error) {
+				r.err = err
+				r.gotOffset = o
+				r.gotLimit = l
+				wg.Done()
+			})
+		}
+
+		// Wait for all goroutines to finish adding their ranges.
+		wg.Wait()
+		// Wait for all reads to complete.
+		reader.Wait()
+
+		if manager.streamIDCounter != maxConnections {
+			t.Fatalf("Manager did not scale up to maxConnections; got %d, want %d", manager.streamIDCounter, maxConnections)
+		}
+		if err = reader.Close(); err != nil {
+			t.Fatalf("Error while closing reader: %v", err)
+		}
+
+		for id, res := range results {
+			if res.err != nil {
+				t.Errorf("Range %d (offset %d) failed: %v", id, res.offset, res.err)
+				continue
+			}
+			if res.gotOffset != res.offset || res.gotLimit != res.limit {
+				t.Errorf("Range %d: got callback offset/limit (%d, %d), want (%d, %d)",
+					id, res.gotOffset, res.gotLimit, res.offset, res.limit)
+			}
+			want := content[res.offset : res.offset+res.limit]
+			if !bytes.Equal(res.buf.Bytes(), want) {
+				t.Errorf("Data mismatch in range %d: got %d bytes, want %d bytes",
+					id, res.buf.Len(), len(want))
+			}
+		}
+	})
+}
+
+func TestIntegration_MRDStreamFailureSurvival(t *testing.T) {
+	multiTransportTest(skipAllButZonal(context.Background(), "Bidi Read API test"), t, func(t *testing.T, ctx context.Context, bucket string, _ string, client *Client) {
+		content := make([]byte, 1<<20)
+		rand.New(rand.NewSource(0)).Read(content)
+		objName := "mrd-survival"
+		obj := client.Bucket(bucket).Object(objName)
+		if err := writeObject(ctx, obj, "text/plain", content); err != nil {
+			t.Fatal(err)
+		}
+		defer obj.Delete(ctx)
+
+		tests := []struct {
+			name           string
+			minConnections int
+			WantMrdError   bool
+		}{
+			{
+				name:           "multi stream",
+				minConnections: 2,
+				WantMrdError:   false,
+			},
+			{
+				name:           "single stream",
+				minConnections: 1,
+				WantMrdError:   true,
+			},
+		}
+		for _, tc := range tests {
+			t.Run(tc.name, func(t *testing.T) {
+
+				reader, err := obj.NewMultiRangeDownloader(ctx, WithMinConnections(tc.minConnections))
+				if err != nil {
+					t.Fatalf("NewMultiRangeDownloader: %v", err)
+				}
+				type rangeRes struct {
+					buf       bytes.Buffer
+					offset    int64
+					limit     int64
+					gotOffset int64
+					gotLimit  int64
+					err       error
+				}
+				results := make([]*rangeRes, 1000)
+				var wg sync.WaitGroup
+				wg.Add(len(results))
+
+				for i := 0; i < 1000; i++ {
+					offset, limit := 0, 100
+					// Inject an out of range error.
+					if i == 100 {
+						offset = 1 << 30
+					}
+					r := &rangeRes{offset: int64(offset), limit: int64(limit)}
+					results[i] = r
+					reader.Add(&r.buf, results[i].offset, results[i].limit, func(o int64, l int64, err error) {
+						r.err = err
+						r.gotOffset = o
+						r.gotLimit = l
+						wg.Done()
+					})
+				}
+				wg.Wait()
+				reader.Wait()
+				mrdErr := reader.Close()
+				// Manager should still be alive incase of multistream.
+				if (mrdErr != nil) != tc.WantMrdError {
+					t.Fatalf("WantMrdError: got %v, want %v", mrdErr != nil, tc.WantMrdError)
+				}
+				if tc.WantMrdError {
+					return
+				}
+				for id, res := range results {
+					// We could see an EOF if receive loop sees context error before receiviing error
+					// from stream with stream.RecvMsg().
+					if res.err != nil && (status.Code(res.err) != codes.OutOfRange && res.err != io.EOF) {
+						t.Fatalf("Range %d error mismatch. want: (%v or %v); got code: %v error: %v", id, io.EOF, codes.OutOfRange, status.Code(res.err), res.err)
+					} else if res.err != nil {
+						continue
+					}
+					if res.gotOffset != res.offset || res.gotLimit != res.limit {
+						t.Fatalf("Range %d: got callback offset/limit (%d, %d), want (%d, %d)",
+							id, res.gotOffset, res.gotLimit, res.offset, res.limit)
+					}
+					want := content[res.offset : res.offset+res.limit]
+					if !bytes.Equal(res.buf.Bytes(), want) {
+						t.Errorf("Data mismatch in range %d: got %d bytes, want %d bytes",
+							id, res.buf.Len(), len(want))
+					}
+				}
+			})
 		}
 	})
 }
@@ -1964,6 +2160,8 @@ func TestIntegration_MultiChunkWrite(t *testing.T) {
 
 func TestIntegration_WriterCRC32CValidation(t *testing.T) {
 	ctx := skipZonalBucket(context.Background(), "Test for resumable and oneshot writers")
+	ctx = skipExtraReadAPIs(ctx, "Test for uploads")
+
 	h := testHelper{t}
 	multiTransportTest(ctx, t, func(t *testing.T, ctx context.Context, bucket string, _ string, client *Client) {
 		testCases := []struct {
@@ -1974,6 +2172,7 @@ func TestIntegration_WriterCRC32CValidation(t *testing.T) {
 			disableAutoChecksum bool
 			incorrectChecksum   bool
 			wantErr             bool
+			sendMD5             bool
 		}{
 			{
 				name:       "oneshot with user-sent CRC32C",
@@ -1996,6 +2195,19 @@ func TestIntegration_WriterCRC32CValidation(t *testing.T) {
 				name:       "resumable with user-sent CRC32C",
 				content:    bytes.Repeat([]byte("a"), 1*MiB),
 				chunkSize:  256 * 1024,
+				sendCRC32C: true,
+			},
+			{
+				name:      "resumable with user-sent MD5",
+				content:   bytes.Repeat([]byte("a"), 1*MiB),
+				chunkSize: 256 * 1024,
+				sendMD5:   true,
+			},
+			{
+				name:       "resumable with user-sent MD5 & CRC32C",
+				content:    bytes.Repeat([]byte("a"), 1*MiB),
+				chunkSize:  256 * 1024,
+				sendMD5:    true,
 				sendCRC32C: true,
 			},
 			{
@@ -2040,6 +2252,10 @@ func TestIntegration_WriterCRC32CValidation(t *testing.T) {
 					w.CRC32C = correctCRC32C + 1
 				}
 				w.DisableAutoChecksum = tc.disableAutoChecksum
+				if tc.sendMD5 {
+					md5Sum := md5.Sum(tc.content)
+					w.MD5 = md5Sum[:]
+				}
 
 				if _, err := w.Write(tc.content); err != nil {
 					t.Fatalf("Writer.Write: %v", err)
@@ -3942,7 +4158,6 @@ func TestIntegration_WriterAppendTakeover(t *testing.T) {
 }
 
 func TestIntegration_WriterAppendEdgeCases(t *testing.T) {
-	t.Skip("persistent failures - https://github.com/googleapis/google-cloud-go/issues/13545")
 	ctx := skipAllButZonal(context.Background(), "ZB test")
 	multiTransportTest(ctx, t, func(t *testing.T, ctx context.Context, bucket, _ string, client *Client) {
 		h := testHelper{t}
@@ -3987,8 +4202,11 @@ func TestIntegration_WriterAppendEdgeCases(t *testing.T) {
 
 		// Expect FAILED_PRECONDITION or ABORTED error when writing to orginal Writer.
 		_, err = w.Write(randomBytes3MiB)
+		if err == nil {
+			_, err = w.Flush()
+		}
 		if code := status.Code(err); !(code == codes.FailedPrecondition || code == codes.Aborted) {
-			t.Fatalf("w.Write: got error %v, want FailedPrecondition or Aborted", err)
+			t.Fatalf("w.Write or w.Flush: got error %v, want FailedPrecondition or Aborted", err)
 		}
 
 		// Another NewWriter to the unfinalized object should be able to
@@ -4002,8 +4220,8 @@ func TestIntegration_WriterAppendEdgeCases(t *testing.T) {
 			t.Fatalf("w2.Close: %v", err)
 		}
 
-		// If we add yet another takeover writer to finalize and delete the object,
-		// tw should return an error on flush.
+		// If we add yet another takeover writer to finalize the object, that should
+		// succeed.
 		tw2, _, err := obj.Generation(w2.Attrs().Generation).NewWriterFromAppendableObject(ctx, &AppendableWriterOpts{
 			FinalizeOnClose: true,
 		})
@@ -4013,13 +4231,16 @@ func TestIntegration_WriterAppendEdgeCases(t *testing.T) {
 		if err := tw2.Close(); err != nil {
 			t.Fatalf("tw2.Close: %v", err)
 		}
-		h.mustDeleteObject(obj)
-		if _, err := tw.Write([]byte("abcde")); err != nil {
-			t.Fatalf("tw.Write: %v", err)
+
+		// `tw` should always fail to flush. Because `w2` overwrote the original
+		// object generation, `tw` might see either a fence error or a NOT_FOUND
+		// error.
+		_, err = tw.Write([]byte("abcde"))
+		if err == nil {
+			_, err = tw.Flush()
 		}
-		_, err = tw.Flush()
-		if code := status.Code(err); !(code == codes.FailedPrecondition || code == codes.Aborted) {
-			t.Errorf("tw.Flush: got error %v, want FailedPrecondition or Aborted", err)
+		if code := status.Code(err); !(code == codes.FailedPrecondition || code == codes.Aborted || code == codes.NotFound) {
+			t.Errorf("tw.Write or tw.Flush: got error %v, want FailedPrecondition, Aborted, or NotFound", err)
 		}
 	})
 }
@@ -6032,8 +6253,111 @@ func TestIntegration_KMS(t *testing.T) {
 
 		// Remove the default KMS key.
 		attrs = h.mustUpdateBucket(bkt, BucketAttrsToUpdate{Encryption: &BucketEncryption{DefaultKMSKeyName: ""}}, attrs.MetaGeneration)
-		if attrs.Encryption != nil {
+		if attrs.Encryption != nil && attrs.Encryption.DefaultKMSKeyName != "" {
 			t.Fatalf("got %#v, want nil", attrs.Encryption)
+		}
+	})
+}
+
+func TestIntegration_BucketEncryptionEnforcement(t *testing.T) {
+	t.Skip("b/489975716")
+	ctx := skipExtraReadAPIs(context.Background(), "no reads in test")
+	multiTransportTest(ctx, t, func(t *testing.T, ctx context.Context, _ string, prefix string, client *Client) {
+		h := testHelper{t}
+		bktName := prefix + uidSpace.New()
+		bkt := client.Bucket(bktName)
+		keyRingName := os.Getenv("GCLOUD_TESTS_GOLANG_KEYRING")
+		if keyRingName == "" {
+			t.Fatal("GCLOUD_TESTS_GOLANG_KEYRING must be set. See CONTRIBUTING.md for details")
+		}
+		keyName := keyRingName + "/cryptoKeys/key1"
+		// Create bucket with encryption enforcement config.
+		h.mustCreate(bkt, testutil.ProjID(), &BucketAttrs{
+			Encryption: &BucketEncryption{
+				DefaultKMSKeyName: keyName,
+			},
+			GoogleManagedEncryptionEnforcementConfig: &EncryptionEnforcementConfig{
+				RestrictionMode: FullyRestricted,
+			},
+			CustomerManagedEncryptionEnforcementConfig: &EncryptionEnforcementConfig{
+				RestrictionMode: FullyRestricted,
+			},
+		})
+		defer h.mustDeleteBucket(bkt)
+
+		// Verify creation.
+		attrs := h.mustBucketAttrs(bkt)
+		if attrs.Encryption == nil {
+			t.Fatal("expected encryption attrs to be set")
+		}
+		if attrs.Encryption.DefaultKMSKeyName != keyName {
+			t.Fatalf("Encryption.DefaultKMSKeyName: got: %v, want: %v", attrs.Encryption.DefaultKMSKeyName, keyName)
+		}
+		if attrs.GoogleManagedEncryptionEnforcementConfig == nil {
+			t.Fatal("expected GoogleManagedEncryptionEnforcementConfig to be set")
+		}
+		if got, want := attrs.GoogleManagedEncryptionEnforcementConfig.RestrictionMode, FullyRestricted; got != want {
+			t.Errorf("GoogleManagedEncryptionEnforcementConfig.RestrictionMode: got %q, want %q", got, want)
+		}
+		if attrs.CustomerManagedEncryptionEnforcementConfig == nil {
+			t.Fatal("expected CustomerManagedEncryptionEnforcementConfig to be set")
+		}
+		if got, want := attrs.CustomerManagedEncryptionEnforcementConfig.RestrictionMode, FullyRestricted; got != want {
+			t.Errorf("CustomerManagedEncryptionEnforcementConfig.RestrictionMode: got %q, want %q", got, want)
+		}
+
+		// Update encryption enforcement config.
+		ua := BucketAttrsToUpdate{
+			CustomerManagedEncryptionEnforcementConfig: &EncryptionEnforcementConfig{
+				RestrictionMode: NotRestricted,
+			},
+			CustomerSuppliedEncryptionEnforcementConfig: &EncryptionEnforcementConfig{
+				RestrictionMode: FullyRestricted,
+			},
+		}
+
+		attrs = h.mustUpdateBucket(bkt, ua, attrs.MetaGeneration)
+
+		// Verify update from attrs.
+		if attrs.Encryption == nil || attrs.Encryption.DefaultKMSKeyName == "" {
+			t.Errorf("expected DefaultKMSKeyName to be set, got %v", attrs.Encryption)
+		}
+		if attrs.GoogleManagedEncryptionEnforcementConfig == nil {
+			t.Fatal("expected GoogleManagedEncryptionEnforcementConfig to be set after update")
+		}
+		if got, want := attrs.GoogleManagedEncryptionEnforcementConfig.RestrictionMode, FullyRestricted; got != want {
+			t.Errorf("GoogleManagedEncryptionEnforcementConfig.RestrictionMode (after update): got %q, want %q", got, want)
+		}
+		if attrs.CustomerManagedEncryptionEnforcementConfig == nil {
+			t.Fatal("expected CustomerManagedEncryptionEnforcementConfig to be set after update")
+		}
+		if got, want := attrs.CustomerManagedEncryptionEnforcementConfig.RestrictionMode, NotRestricted; got != want {
+			t.Errorf("CustomerManagedEncryptionEnforcementConfig.RestrictionMode (after update): got %q, want %q", got, want)
+		}
+		if attrs.CustomerSuppliedEncryptionEnforcementConfig == nil {
+			t.Fatal("expected CustomerSuppliedEncryptionEnforcementConfig to be set after update")
+		}
+		if got, want := attrs.CustomerSuppliedEncryptionEnforcementConfig.RestrictionMode, FullyRestricted; got != want {
+			t.Errorf("CustomerSuppliedEncryptionEnforcementConfig.RestrictionMode (after update): got %q, want %q", got, want)
+		}
+
+		// Patching GMEK while deleting DefaultKMSKeyName.
+		ua = BucketAttrsToUpdate{
+			Encryption: &BucketEncryption{DefaultKMSKeyName: ""},
+			GoogleManagedEncryptionEnforcementConfig: &EncryptionEnforcementConfig{
+				RestrictionMode: NotRestricted,
+			},
+		}
+		attrs = h.mustUpdateBucket(bkt, ua, attrs.MetaGeneration)
+
+		if attrs.Encryption != nil && attrs.Encryption.DefaultKMSKeyName != "" {
+			t.Errorf("expected DefaultKMSKeyName to be empty, got %v", attrs.Encryption.DefaultKMSKeyName)
+		}
+		if attrs.GoogleManagedEncryptionEnforcementConfig == nil {
+			t.Fatal("expected GoogleManagedEncryptionEnforcementConfig to be set after patch")
+		}
+		if got, want := attrs.GoogleManagedEncryptionEnforcementConfig.RestrictionMode, NotRestricted; got != want {
+			t.Errorf("GoogleManagedEncryptionEnforcementConfig.RestrictionMode (after patch): got %q, want %q", got, want)
 		}
 	})
 }

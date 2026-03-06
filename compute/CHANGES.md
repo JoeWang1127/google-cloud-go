@@ -1,5 +1,20 @@
 # Changes
 
+## [1.56.0](https://github.com/googleapis/google-cloud-go/releases/tag/compute%2Fv1.56.0) (2026-03-05)
+
+### Features
+
+* Update Compute Engine v1 API to revision 20260213 The breaking change exemption is approved in internal http://b/488396206 ([9c80b8b](https://github.com/googleapis/google-cloud-go/commit/9c80b8b4442a54c610826c1bb89cec5158b49314))
+* Update Compute Engine v1beta API to revision 20260213 ([9c80b8b](https://github.com/googleapis/google-cloud-go/commit/9c80b8b4442a54c610826c1bb89cec5158b49314))
+
+## [1.55.0](https://github.com/googleapis/google-cloud-go/releases/tag/compute%2Fv1.55.0) (2026-02-26)
+
+### Features
+
+* Update Compute Engine v1 API to revision 20260106 (#1148) ([b21a3b8](https://github.com/googleapis/google-cloud-go/commit/b21a3b8409f1af4f077be833949c1b6cc3e4c319))
+* Update Compute Engine v1beta API to revision 20260106 (#1147) ([b21a3b8](https://github.com/googleapis/google-cloud-go/commit/b21a3b8409f1af4f077be833949c1b6cc3e4c319))
+* Update Compute Engine v1beta API to revision 20260206 (https://github.com/googleapis/googleapis/pull/1159) ([b21a3b8](https://github.com/googleapis/google-cloud-go/commit/b21a3b8409f1af4f077be833949c1b6cc3e4c319))
+
 ## [1.54.0](https://github.com/googleapis/google-cloud-go/releases/tag/compute%2Fv1.54.0) (2026-01-22)
 
 ### Features

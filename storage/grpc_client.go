@@ -69,12 +69,11 @@ const (
 	// which only does a single read per stream.
 	defaultReadID = 1
 
-	forceDirectConnectivityFallbackAllowed = "FALLBACK_ALLOWED"
-	forceDirectConnectivityEnforced        = "ENFORCED"
-	forceDirectConnectivityOptedOut        = "OPTED_OUT"
-	directConnectivityHeaderKey            = "force_direct_connectivity"
-	requestParamsHeaderKey                 = "x-goog-request-params"
-	directPathEndpointPrefix               = "google-c2p:///"
+	forceDirectConnectivityEnforced = "ENFORCED"
+	forceDirectConnectivityOptedOut = "OPTED_OUT"
+	directConnectivityHeaderKey     = "force_direct_connectivity"
+	requestParamsHeaderKey          = "x-goog-request-params"
+	directPathEndpointPrefix        = "google-c2p:///"
 )
 
 // defaultGRPCOptions returns a set of the default client options
@@ -216,30 +215,31 @@ func (c *grpcStorageClient) prepareDirectPathMetadata(ctx context.Context, targe
 	}
 
 	// Determine the intended mode based on user configuration.
-	value := forceDirectConnectivityFallbackAllowed // Default
+	value := ""
 	if c.config.grpcDirectPathEnforced {
 		value = forceDirectConnectivityEnforced
 	}
 
 	// Downgrade based on connection status.
 	if !isDirectPath {
-		// TODO: Reject call if set to ENFORCED when supported.
 		// Downgrade to OPTED_OUT for server-side monitoring.
 		value = forceDirectConnectivityOptedOut
 	}
 
 	dc := directConnectivityHeaderKey + "=" + value
 
-	// Inject header.
 	md, ok := metadata.FromOutgoingContext(ctx)
 	if !ok {
 		md = metadata.MD{}
 	}
 
-	if vals := md.Get(requestParamsHeaderKey); len(vals) > 0 {
-		md.Set(requestParamsHeaderKey, vals[0]+"&"+dc)
-	} else {
-		md.Set(requestParamsHeaderKey, dc)
+	// Inject the header only if we have a value to set.
+	if value != "" {
+		if vals := md.Get(requestParamsHeaderKey); len(vals) > 0 {
+			md.Set(requestParamsHeaderKey, vals[0]+"&"+dc)
+		} else {
+			md.Set(requestParamsHeaderKey, dc)
+		}
 	}
 
 	return metadata.NewOutgoingContext(ctx, md), nil
@@ -428,7 +428,16 @@ func (c *grpcStorageClient) UpdateBucket(ctx context.Context, bucket string, uat
 		fieldMask.Paths = append(fieldMask.Paths, "iam_config")
 	}
 	if uattrs.Encryption != nil {
-		fieldMask.Paths = append(fieldMask.Paths, "encryption")
+		fieldMask.Paths = append(fieldMask.Paths, "encryption.default_kms_key")
+	}
+	if uattrs.GoogleManagedEncryptionEnforcementConfig != nil {
+		fieldMask.Paths = append(fieldMask.Paths, "encryption.google_managed_encryption_enforcement_config")
+	}
+	if uattrs.CustomerManagedEncryptionEnforcementConfig != nil {
+		fieldMask.Paths = append(fieldMask.Paths, "encryption.customer_managed_encryption_enforcement_config")
+	}
+	if uattrs.CustomerSuppliedEncryptionEnforcementConfig != nil {
+		fieldMask.Paths = append(fieldMask.Paths, "encryption.customer_supplied_encryption_enforcement_config")
 	}
 	if uattrs.Lifecycle != nil {
 		fieldMask.Paths = append(fieldMask.Paths, "lifecycle")

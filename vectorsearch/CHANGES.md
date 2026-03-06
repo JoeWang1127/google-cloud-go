@@ -1,5 +1,26 @@
 # Changes
 
+## [0.4.0](https://github.com/googleapis/google-cloud-go/releases/tag/vectorsearch%2Fv0.4.0) (2026-03-05)
+
+### Features
+
+* Added index and search configuration management ([9c80b8b](https://github.com/googleapis/google-cloud-go/commit/9c80b8b4442a54c610826c1bb89cec5158b49314))
+
+### Bug Fixes
+
+* Removed obsolete field `vertex` from message `.google.cloud.vectorsearch.v1.Ranker` ([9c80b8b](https://github.com/googleapis/google-cloud-go/commit/9c80b8b4442a54c610826c1bb89cec5158b49314))
+* Removed obsolete message `VertexRanker` ([9c80b8b](https://github.com/googleapis/google-cloud-go/commit/9c80b8b4442a54c610826c1bb89cec5158b49314))
+
+### Documentation
+
+* Updated documentation for Index Creation, Import Data Objects, Search ([9c80b8b](https://github.com/googleapis/google-cloud-go/commit/9c80b8b4442a54c610826c1bb89cec5158b49314))
+
+## [0.3.0](https://github.com/googleapis/google-cloud-go/releases/tag/vectorsearch%2Fv0.3.0) (2026-02-19)
+
+### Features
+
+* add new clients (#13853) ([822ac7e](https://github.com/googleapis/google-cloud-go/commit/822ac7e478cc5ad0db2bffeda3563dd09aef5278))
+
 ## [0.2.0](https://github.com/googleapis/google-cloud-go/releases/tag/vectorsearch%2Fv0.2.0) (2026-02-05)
 
 ### Features

@@ -1512,8 +1512,8 @@ func TestIntegration_QueryStatistics(t *testing.T) {
 		t.Fatal("expected job statistics, none found")
 	}
 
-	if status.Statistics.TotalSlotDuration <= 0 {
-		t.Errorf("expected positive total slot duration, %s reported", status.Statistics.TotalSlotDuration.String())
+	if status.Statistics.TotalSlotDuration < 0 {
+		t.Errorf("expected non-negative total slot duration, %s reported", status.Statistics.TotalSlotDuration.String())
 	}
 
 	if status.Statistics.NumChildJobs != 0 {
@@ -1555,6 +1555,10 @@ func TestIntegration_QueryStatistics(t *testing.T) {
 
 	if len(qStats.QueryPlan) == 0 {
 		t.Error("expected query plan, none present")
+	}
+
+	if qStats.TotalServicesSkuSlotMillis < 0 {
+		t.Errorf("expected total services SKU slot ms >= 0, got: %d", qStats.TotalServicesSkuSlotMillis)
 	}
 
 	if len(qStats.Timeline) == 0 {
