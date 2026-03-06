@@ -931,7 +931,8 @@ libraries:
           path: google/cloud/oslogin/v1
         - no_metadata: true
           path: google/cloud/oslogin/v1beta
-        - proto_only: true
+        - import_path: oslogin/common
+          proto_only: true
           path: google/cloud/oslogin/common
   - name: parallelstore
     version: 0.12.0
