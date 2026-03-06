@@ -668,6 +668,7 @@ libraries:
       - path: google/cloud/gkerecommender/v1
   - name: grafeas
     version: 0.3.17
+    output: "."
     veneer: true
   - name: gsuiteaddons
     version: 1.7.8
