@@ -168,19 +168,15 @@ libraries:
     skip_release: true
   - name: auth
     version: 0.18.2
-    output: "."
     keep:
       - internal/version.go
       - README.md
     skip_release: true
-    veneer: true
   - name: auth/oauth2adapt
     version: 0.2.8
-    output: "."
     keep:
       - internal/version.go
     skip_release: true
-    veneer: true
   - name: automl
     version: 1.15.0
     apis:
@@ -403,9 +399,7 @@ libraries:
     keep:
       - README.md
       - internal/version.go
-    output: "."
     skip_release: true
-    veneer: true
   - name: confidentialcomputing
     version: 1.11.0
     apis:
@@ -676,8 +670,6 @@ libraries:
     keep:
       - README.md
       - internal/version.go
-    output: "."
-    veneer: true
   - name: gsuiteaddons
     version: 1.7.8
     apis:
@@ -975,16 +967,12 @@ libraries:
     keep:
       - README.md
       - internal/version.go
-    output: "."
-    veneer: true
   - name: pubsub
     version: 1.50.1
     keep:
       - README.md
       - internal/version.go
-    output: "."
     skip_release: true
-    veneer: true
   - name: pubsub/v2
     version: 2.4.0
     apis:
@@ -1066,9 +1054,7 @@ libraries:
       - path: google/cloud/retail/v2beta
   - name: root-module
     version: 0.123.0
-    output: "."
     skip_release: true
-    veneer: true
   - name: run
     version: 1.15.0
     apis:
