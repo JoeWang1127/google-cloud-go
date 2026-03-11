@@ -972,6 +972,7 @@ libraries:
     keep:
       - README.md
       - internal/version.go
+    nested_module: v2
     skip_release: true
   - name: pubsub/v2
     version: 2.4.0
