@@ -11,15 +11,12 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-
 language: go
 repo: googleapis/google-cloud-go
 sources:
   googleapis:
-    commit: 1349486ee18dd6535c4379aa2b4b4665a56f674f
-    sha256: 520257070631db7cf4e8b18ad539b3baa4d79b7deb90ecf21ffa819a43d14326
-release:
-  branch: main
+    commit: 19890a07f37ea7c8666e11847f3b6456e5ef772d
+    sha256: b504b622396e8f08506b3fdb9ed50c47176a591b13534db16ad7c540f43b9fa8
 default:
   output: .
   release_level: ga
@@ -933,8 +930,9 @@ libraries:
     keep:
       - README.md
       - internal/version.go
-    nested_module: v2
     skip_release: true
+    go:
+      nested_module: v2
   - name: pubsub/v2
     version: 2.4.0
     apis:
@@ -1137,8 +1135,7 @@ libraries:
       - path: google/shopping/type
     go:
       go_apis:
-        - import_path: shopping/type
-          path: google/shopping/type
+        - path: google/shopping/type
           proto_only: true
   - name: spanner
     version: 1.88.0
