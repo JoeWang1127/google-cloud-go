@@ -15,8 +15,10 @@ language: go
 repo: googleapis/google-cloud-go
 sources:
   googleapis:
-    commit: 19890a07f37ea7c8666e11847f3b6456e5ef772d
-    sha256: b504b622396e8f08506b3fdb9ed50c47176a591b13534db16ad7c540f43b9fa8
+    commit: 6f8a554039638f4a9ca78d5f0c964281a16f4166
+    sha256: ace9b15956b839f9352b95818a88b200c311e1ec3fd4df0796895f3e6355d87b
+release:
+  branch: main
 default:
   output: .
   release_level: ga
@@ -374,8 +376,8 @@ libraries:
   - name: compute/metadata
     version: 0.9.0
     keep:
-      - README.md
       - internal/version.go
+      - README.md
     skip_release: true
   - name: confidentialcomputing
     version: 1.11.0
@@ -627,8 +629,8 @@ libraries:
   - name: grafeas
     version: 0.3.17
     keep:
-      - README.md
       - internal/version.go
+      - README.md
   - name: gsuiteaddons
     version: 1.7.8
     apis:
@@ -923,13 +925,13 @@ libraries:
   - name: profiler
     version: 0.4.3
     keep:
-      - README.md
       - internal/version.go
+      - README.md
   - name: pubsub
     version: 1.50.1
     keep:
-      - README.md
       - internal/version.go
+      - README.md
     skip_release: true
     go:
       nested_module: v2
@@ -1248,8 +1250,8 @@ libraries:
   - name: vertexai
     version: 0.15.0
     keep:
-      - README.md
       - internal/version.go
+      - README.md
     skip_release: true
   - name: video
     version: 1.27.1
