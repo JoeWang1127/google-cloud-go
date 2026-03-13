@@ -20,7 +20,6 @@ sources:
 release:
   branch: main
 default:
-  output: .
   release_level: ga
   tag_format: '{name}/v{version}'
 libraries:
