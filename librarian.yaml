@@ -1173,7 +1173,7 @@ libraries:
     skip_release: true
     go:
       delete_generation_output_paths:
-        - internal/generated/snippets/storage/internal
+        - ../internal/generated/snippets/storage/internal
       go_apis:
         - import_path: storage/internal/apiv2
           path: google/storage/v2
