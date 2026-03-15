@@ -15,8 +15,8 @@ language: go
 repo: googleapis/google-cloud-go
 sources:
   googleapis:
-    commit: 6f8a554039638f4a9ca78d5f0c964281a16f4166
-    sha256: ace9b15956b839f9352b95818a88b200c311e1ec3fd4df0796895f3e6355d87b
+    commit: 2c01d72e75720ec8319dee4e5ff586a51ee2b29c
+    sha256: 639ca5657985e2a1adbc9e7a8f40629a01eabd06644f4c78c049c7325099e429
 release:
   branch: main
 default:
@@ -47,7 +47,7 @@ libraries:
       - path: google/ai/generativelanguage/v1beta
       - path: google/ai/generativelanguage/v1beta2
   - name: aiplatform
-    version: 1.119.0
+    version: 1.120.0
     apis:
       - path: google/cloud/aiplatform/v1
       - path: google/cloud/aiplatform/v1beta1
@@ -167,8 +167,8 @@ libraries:
   - name: auth
     version: 0.18.2
     keep:
-      - internal/version.go
       - README.md
+      - internal/version.go
     skip_release: true
   - name: auth/oauth2adapt
     version: 0.2.8
@@ -375,8 +375,8 @@ libraries:
   - name: compute/metadata
     version: 0.9.0
     keep:
-      - internal/version.go
       - README.md
+      - internal/version.go
     skip_release: true
   - name: confidentialcomputing
     version: 1.11.0
@@ -628,8 +628,8 @@ libraries:
   - name: grafeas
     version: 0.3.17
     keep:
-      - internal/version.go
       - README.md
+      - internal/version.go
   - name: gsuiteaddons
     version: 1.7.8
     apis:
@@ -884,13 +884,12 @@ libraries:
       - path: google/cloud/oslogin/v1beta
     go:
       go_apis:
+        - path: google/cloud/oslogin/common
+          proto_only: true
         - no_metadata: true
           path: google/cloud/oslogin/v1
         - no_metadata: true
           path: google/cloud/oslogin/v1beta
-        - import_path: oslogin/common
-          path: google/cloud/oslogin/common
-          proto_only: true
   - name: parallelstore
     version: 0.12.0
     apis:
@@ -924,13 +923,13 @@ libraries:
   - name: profiler
     version: 0.4.3
     keep:
-      - internal/version.go
       - README.md
+      - internal/version.go
   - name: pubsub
     version: 1.50.1
     keep:
-      - internal/version.go
       - README.md
+      - internal/version.go
     skip_release: true
     go:
       nested_module: v2
@@ -1251,8 +1250,8 @@ libraries:
   - name: vertexai
     version: 0.15.0
     keep:
-      - internal/version.go
       - README.md
+      - internal/version.go
     skip_release: true
   - name: video
     version: 1.27.1
