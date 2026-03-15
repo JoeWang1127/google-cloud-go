@@ -52,7 +52,7 @@ libraries:
       - path: google/cloud/aiplatform/v1
       - path: google/cloud/aiplatform/v1beta1
   - name: alloydb
-    version: 1.21.0
+    version: 1.18.0
     apis:
       - path: google/cloud/alloydb/connectors/v1
       - path: google/cloud/alloydb/connectors/v1alpha
