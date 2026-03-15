@@ -47,7 +47,7 @@ libraries:
       - path: google/ai/generativelanguage/v1beta
       - path: google/ai/generativelanguage/v1beta2
   - name: aiplatform
-    version: 1.120.0
+    version: 1.100.0
     apis:
       - path: google/cloud/aiplatform/v1
       - path: google/cloud/aiplatform/v1beta1
