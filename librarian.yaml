@@ -884,7 +884,8 @@ libraries:
       - path: google/cloud/oslogin/v1beta
     go:
       go_apis:
-        - path: google/cloud/oslogin/common
+        - import_path: oslogin/common
+          path: google/cloud/oslogin/common
           proto_only: true
         - no_metadata: true
           path: google/cloud/oslogin/v1
