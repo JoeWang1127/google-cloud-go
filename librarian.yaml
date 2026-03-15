@@ -24,11 +24,11 @@ default:
   tag_format: '{name}/v{version}'
 libraries:
   - name: accessapproval
-    version: 1.8.8
+    version: 1.8.7
     apis:
       - path: google/cloud/accessapproval/v1
   - name: accesscontextmanager
-    version: 1.9.7
+    version: 1.9.6
     apis:
       - path: google/identity/accesscontextmanager/v1
     go:
@@ -40,7 +40,7 @@ libraries:
     apis:
       - path: google/cloud/advisorynotifications/v1
   - name: ai
-    version: 0.15.0
+    version: 0.13.0
     apis:
       - path: google/ai/generativelanguage/v1
       - path: google/ai/generativelanguage/v1alpha
