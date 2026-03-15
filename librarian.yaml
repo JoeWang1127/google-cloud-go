@@ -274,7 +274,7 @@ libraries:
     apis:
       - path: google/cloud/certificatemanager/v1
   - name: ces
-    version: 0.2.0
+    version: 0.3.0
     apis:
       - path: google/cloud/ces/v1
       - path: google/cloud/ces/v1beta
@@ -361,7 +361,7 @@ libraries:
     apis:
       - path: google/cloud/commerce/consumer/procurement/v1
   - name: compute
-    version: 1.56.0
+    version: 1.57.0
     apis:
       - path: google/cloud/compute/v1
       - path: google/cloud/compute/v1beta
@@ -446,7 +446,7 @@ libraries:
     apis:
       - path: google/cloud/datalabeling/v1beta1
   - name: datamanager
-    version: 0.2.0
+    version: 0.3.0
     apis:
       - path: google/ads/datamanager/v1
     go:
@@ -601,7 +601,7 @@ libraries:
       - path: google/cloud/functions/v2
       - path: google/cloud/functions/v2beta
   - name: geminidataanalytics
-    version: 0.7.0
+    version: 0.8.0
     apis:
       - path: google/cloud/geminidataanalytics/v1beta
   - name: gkebackup
@@ -751,7 +751,7 @@ libraries:
       - path: google/cloud/managedkafka/schemaregistry/v1
       - path: google/cloud/managedkafka/v1
   - name: maps
-    version: 1.28.0
+    version: 1.29.0
     apis:
       - path: google/maps/addressvalidation/v1
       - path: google/maps/areainsights/v1
@@ -819,7 +819,7 @@ libraries:
     apis:
       - path: google/cloud/netapp/v1
   - name: networkconnectivity
-    version: 1.20.0
+    version: 1.21.0
     apis:
       - path: google/cloud/networkconnectivity/v1
       - path: google/cloud/networkconnectivity/v1alpha1
@@ -1104,7 +1104,7 @@ libraries:
     apis:
       - path: google/cloud/shell/v1
   - name: shopping
-    version: 1.4.0
+    version: 1.5.0
     apis:
       - path: google/shopping/css/v1
       - path: google/shopping/merchant/accounts/v1
@@ -1165,7 +1165,7 @@ libraries:
       - path: google/cloud/speech/v1p1beta1
       - path: google/cloud/speech/v2
   - name: storage
-    version: 1.60.0
+    version: 1.61.3
     apis:
       - path: google/storage/control/v2
       - path: google/storage/v2
@@ -1243,7 +1243,7 @@ libraries:
         - path: google/cloud/translate/v3
           proto_package: google.cloud.translation.v3
   - name: vectorsearch
-    version: 0.4.0
+    version: 0.5.0
     apis:
       - path: google/cloud/vectorsearch/v1
       - path: google/cloud/vectorsearch/v1beta
