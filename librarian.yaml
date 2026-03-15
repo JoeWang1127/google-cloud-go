@@ -24,11 +24,11 @@ default:
   tag_format: '{name}/v{version}'
 libraries:
   - name: accessapproval
-    version: 1.8.7
+    version: 1.8.8
     apis:
       - path: google/cloud/accessapproval/v1
   - name: accesscontextmanager
-    version: 1.9.6
+    version: 1.9.7
     apis:
       - path: google/identity/accesscontextmanager/v1
     go:
@@ -40,19 +40,19 @@ libraries:
     apis:
       - path: google/cloud/advisorynotifications/v1
   - name: ai
-    version: 0.13.0
+    version: 0.15.0
     apis:
       - path: google/ai/generativelanguage/v1
       - path: google/ai/generativelanguage/v1alpha
       - path: google/ai/generativelanguage/v1beta
       - path: google/ai/generativelanguage/v1beta2
   - name: aiplatform
-    version: 1.100.0
+    version: 1.120.0
     apis:
       - path: google/cloud/aiplatform/v1
       - path: google/cloud/aiplatform/v1beta1
   - name: alloydb
-    version: 1.18.0
+    version: 1.21.0
     apis:
       - path: google/cloud/alloydb/connectors/v1
       - path: google/cloud/alloydb/connectors/v1alpha
@@ -117,7 +117,7 @@ libraries:
       - path: google/apps/meet/v2
       - path: google/apps/meet/v2beta
   - name: area120
-    version: 0.9.7
+    version: 0.10.0
     apis:
       - path: google/area120/tables/v1alpha1
     go:
