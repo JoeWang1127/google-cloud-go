@@ -39,4 +39,4 @@ libraries:
   - id: vertexai
     release_blocked: true
   - id: iap
-    release_blocked: true
+    generate_blocked: true
