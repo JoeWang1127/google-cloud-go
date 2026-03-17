@@ -12,8 +12,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 language: go
-repo: googleapis/google-cloud-go
 version: latest
+repo: googleapis/google-cloud-go
 sources:
   googleapis:
     commit: 5f6048b0222ddc57826fbbd254ea3197e2db82f3
