@@ -1,8 +1,8 @@
-# Compute API
+# Google Compute Engine API
 
 [![Go Reference](https://pkg.go.dev/badge/cloud.google.com/go/compute.svg)](https://pkg.go.dev/cloud.google.com/go/compute)
 
-Go Client Library for Compute API.
+Go Client Library for Google Compute Engine API.
 
 ## Install
 

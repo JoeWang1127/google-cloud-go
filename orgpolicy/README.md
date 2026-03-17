@@ -1,8 +1,8 @@
-# Organization Policy API
+# Organization Policy Types
 
 [![Go Reference](https://pkg.go.dev/badge/cloud.google.com/go/orgpolicy.svg)](https://pkg.go.dev/cloud.google.com/go/orgpolicy)
 
-Go Client Library for Organization Policy API.
+Go Client Library for Organization Policy Types.
 
 ## Install
 

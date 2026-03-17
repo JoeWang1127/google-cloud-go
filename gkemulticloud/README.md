@@ -1,8 +1,8 @@
-# Anthos Multi-Cloud API
+# GKE Multi-Cloud API
 
 [![Go Reference](https://pkg.go.dev/badge/cloud.google.com/go/gkemulticloud.svg)](https://pkg.go.dev/cloud.google.com/go/gkemulticloud)
 
-Go Client Library for Anthos Multi-Cloud API.
+Go Client Library for GKE Multi-Cloud API.
 
 ## Install
 
@@ -18,10 +18,6 @@ However, a `v1+` module may have breaking changes in two scenarios:
 
 * Packages with `alpha` or `beta` in the import path
 * The GoDoc has an explicit stability disclaimer (for example, for an experimental feature).
-
-## Google Cloud Samples
-
-To browse ready to use code samples check [Google Cloud Samples](https://cloud.google.com/docs/samples?l=go).
 
 ## Go Version Support
 

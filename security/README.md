@@ -1,8 +1,8 @@
-# Security APIs
+# Certificate Authority API
 
 [![Go Reference](https://pkg.go.dev/badge/cloud.google.com/go/security.svg)](https://pkg.go.dev/cloud.google.com/go/security)
 
-Go Client Library for Security APIs.
+Go Client Library for Certificate Authority API.
 
 ## Install
 

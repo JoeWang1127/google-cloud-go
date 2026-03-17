@@ -1,8 +1,8 @@
-# Area120 API
+# Area120 Tables API
 
 [![Go Reference](https://pkg.go.dev/badge/cloud.google.com/go/area120.svg)](https://pkg.go.dev/cloud.google.com/go/area120)
 
-Go Client Library for Area120 API.
+Go Client Library for Area120 Tables API.
 
 ## Install
 

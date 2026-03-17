@@ -1,8 +1,8 @@
-# Google Cloud Deploy API
+# Cloud Deploy API
 
 [![Go Reference](https://pkg.go.dev/badge/cloud.google.com/go/deploy.svg)](https://pkg.go.dev/cloud.google.com/go/deploy)
 
-Go Client Library for Google Cloud Deploy API.
+Go Client Library for Cloud Deploy API.
 
 ## Install
 

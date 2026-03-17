@@ -1,8 +1,8 @@
-# Eventarc API
+# Eventarc Publishing API
 
 [![Go Reference](https://pkg.go.dev/badge/cloud.google.com/go/eventarc.svg)](https://pkg.go.dev/cloud.google.com/go/eventarc)
 
-Go Client Library for Eventarc API.
+Go Client Library for Eventarc Publishing API.
 
 ## Install
 

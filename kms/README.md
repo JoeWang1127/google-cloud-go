@@ -1,8 +1,8 @@
-# Cloud Key Management Service (KMS) API
+# KMS Inventory API
 
 [![Go Reference](https://pkg.go.dev/badge/cloud.google.com/go/kms.svg)](https://pkg.go.dev/cloud.google.com/go/kms)
 
-Go Client Library for Cloud Key Management Service (KMS) API.
+Go Client Library for KMS Inventory API.
 
 ## Install
 

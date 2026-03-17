@@ -1,8 +1,8 @@
-# Cloud OS Login API
+# Cloud OS Login Common Types
 
 [![Go Reference](https://pkg.go.dev/badge/cloud.google.com/go/oslogin.svg)](https://pkg.go.dev/cloud.google.com/go/oslogin)
 
-Go Client Library for Cloud OS Login API.
+Go Client Library for Cloud OS Login Common Types.
 
 ## Install
 

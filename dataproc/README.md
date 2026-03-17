@@ -1,6 +1,6 @@
 # Cloud Dataproc API
 
-[![Go Reference](https://pkg.go.dev/badge/cloud.google.com/go/dataproc.svg)](https://pkg.go.dev/cloud.google.com/go/dataproc)
+[![Go Reference](https://pkg.go.dev/badge/cloud.google.com/go/dataproc/v2.svg)](https://pkg.go.dev/cloud.google.com/go/dataproc/v2)
 
 Go Client Library for Cloud Dataproc API.
 

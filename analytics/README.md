@@ -1,8 +1,8 @@
-# Analytics API
+# Google Analytics Admin API
 
 [![Go Reference](https://pkg.go.dev/badge/cloud.google.com/go/analytics.svg)](https://pkg.go.dev/cloud.google.com/go/analytics)
 
-Go Client Library for Analytics API.
+Go Client Library for Google Analytics Admin API.
 
 ## Install
 

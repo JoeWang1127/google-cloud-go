@@ -1,8 +1,8 @@
-# Retail API
+# Vertex AI Search for commerce API
 
 [![Go Reference](https://pkg.go.dev/badge/cloud.google.com/go/retail.svg)](https://pkg.go.dev/cloud.google.com/go/retail)
 
-Go Client Library for Retail API.
+Go Client Library for Vertex AI Search for commerce API.
 
 ## Install
 

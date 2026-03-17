@@ -1,8 +1,8 @@
-# Google Cloud Video Intelligence API
+# Cloud Video Intelligence API
 
 [![Go Reference](https://pkg.go.dev/badge/cloud.google.com/go/videointelligence.svg)](https://pkg.go.dev/cloud.google.com/go/videointelligence)
 
-Go Client Library for Google Cloud Video Intelligence API.
+Go Client Library for Cloud Video Intelligence API.
 
 ## Install
 

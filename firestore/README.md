@@ -1,13 +1,13 @@
-# Capacity Planner API
+# Cloud Firestore API
 
-[![Go Reference](https://pkg.go.dev/badge/cloud.google.com/go/capacityplanner.svg)](https://pkg.go.dev/cloud.google.com/go/capacityplanner)
+[![Go Reference](https://pkg.go.dev/badge/cloud.google.com/go/firestore.svg)](https://pkg.go.dev/cloud.google.com/go/firestore)
 
-Go Client Library for Capacity Planner API.
+Go Client Library for Cloud Firestore API.
 
 ## Install
 
 ```bash
-go get cloud.google.com/go/capacityplanner
+go get cloud.google.com/go/firestore
 ```
 
 ## Stability

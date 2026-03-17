@@ -1,8 +1,8 @@
-# Google Cloud Data Catalog API
+# Data Lineage API
 
 [![Go Reference](https://pkg.go.dev/badge/cloud.google.com/go/datacatalog.svg)](https://pkg.go.dev/cloud.google.com/go/datacatalog)
 
-Go Client Library for Google Cloud Data Catalog API.
+Go Client Library for Data Lineage API.
 
 ## Install
 

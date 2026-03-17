@@ -1,8 +1,8 @@
-# Video APIs
+# Live Stream API
 
 [![Go Reference](https://pkg.go.dev/badge/cloud.google.com/go/video.svg)](https://pkg.go.dev/cloud.google.com/go/video)
 
-Go Client Library for Video APIs.
+Go Client Library for Live Stream API.
 
 ## Install
 

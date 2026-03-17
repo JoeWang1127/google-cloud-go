@@ -1,8 +1,8 @@
-# Workflows API
+# Workflow Executions API
 
 [![Go Reference](https://pkg.go.dev/badge/cloud.google.com/go/workflows.svg)](https://pkg.go.dev/cloud.google.com/go/workflows)
 
-Go Client Library for Workflows API.
+Go Client Library for Workflow Executions API.
 
 ## Install
 

@@ -1,8 +1,8 @@
-# Cloud Billing API
+# Cloud Billing Budget API
 
 [![Go Reference](https://pkg.go.dev/badge/cloud.google.com/go/billing.svg)](https://pkg.go.dev/cloud.google.com/go/billing)
 
-Go Client Library for Cloud Billing API.
+Go Client Library for Cloud Billing Budget API.
 
 ## Install
 

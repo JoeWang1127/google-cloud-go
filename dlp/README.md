@@ -1,8 +1,8 @@
-# Cloud Data Loss Prevention (DLP) API
+# Sensitive Data Protection (DLP)
 
 [![Go Reference](https://pkg.go.dev/badge/cloud.google.com/go/dlp.svg)](https://pkg.go.dev/cloud.google.com/go/dlp)
 
-Go Client Library for Cloud Data Loss Prevention (DLP) API.
+Go Client Library for Sensitive Data Protection (DLP).
 
 ## Install
 

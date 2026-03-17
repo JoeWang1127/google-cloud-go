@@ -1,8 +1,8 @@
-# IAM API
+# IAM Service Account Credentials API
 
 [![Go Reference](https://pkg.go.dev/badge/cloud.google.com/go/iam.svg)](https://pkg.go.dev/cloud.google.com/go/iam)
 
-Go Client Library for IAM API.
+Go Client Library for IAM Service Account Credentials API.
 
 ## Install
 

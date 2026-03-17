@@ -1,8 +1,8 @@
-# Stackdriver Trace API
+# Cloud Trace API
 
 [![Go Reference](https://pkg.go.dev/badge/cloud.google.com/go/trace.svg)](https://pkg.go.dev/cloud.google.com/go/trace)
 
-Go Client Library for Stackdriver Trace API.
+Go Client Library for Cloud Trace API.
 
 ## Install
 

@@ -1,8 +1,8 @@
-# GKE Connect APIs
+# Connect Gateway API
 
 [![Go Reference](https://pkg.go.dev/badge/cloud.google.com/go/gkeconnect.svg)](https://pkg.go.dev/cloud.google.com/go/gkeconnect)
 
-Go Client Library for GKE Connect APIs.
+Go Client Library for Connect Gateway API.
 
 ## Install
 

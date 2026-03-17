@@ -1,8 +1,8 @@
-# Google Workspace Add-ons API
+# Google Workspace add-ons API
 
 [![Go Reference](https://pkg.go.dev/badge/cloud.google.com/go/gsuiteaddons.svg)](https://pkg.go.dev/cloud.google.com/go/gsuiteaddons)
 
-Go Client Library for Google Workspace Add-ons API.
+Go Client Library for Google Workspace add-ons API.
 
 ## Install
 
