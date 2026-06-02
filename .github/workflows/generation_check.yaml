@@ -36,6 +36,7 @@ jobs:
       - name: Regenerate
         if: steps.changes.outputs.librarian == 'true' || (github.event_name == 'push' && github.ref == 'refs/heads/main')
         run: |
+          echo "$HOME/go/bin" >> $GITHUB_PATH
           librarian generate --all
           git diff --exit-code
       - name: Create issue on diff
