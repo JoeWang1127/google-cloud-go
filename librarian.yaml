@@ -12,7 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 language: go
-version: fix/command-env
+version: v0.16.1-0.20260602212414-85d9d4de7acb
 repo: googleapis/google-cloud-go
 sources:
   googleapis:
